@@ -1,6 +1,28 @@
-# Getting Started with Create React App
+# Todo List App in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created as part of Turing Grow upskilling in React. This repo is initially for the front end, built in React and will allow users to add to and edit a todo list. The main aim is to show a good understanding of state management and interactivity. 
+
+## Features for initial app
+
+1. Create an item
+2. See all items
+3. Delete an item
+4. Edit an item
+5. Complete an item
+6. Edit order (drag items around? Sort by function?)
+
+## Look and feel plans
+- Rainbow background
+- Card over the top (mobile first look)
+- Clean look
+- Clouds turning into sunshine animation when you do something?
+    - Change card header image of weather according to your completion of todo in %
+
+
+
+## Future opportunities
+
+Create and connect to a NodeJS web server, create and connect to a CRUD db web server. 
 
 ## Available Scripts
 
@@ -28,30 +50,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
 ### Making a Progressive Web App
 
