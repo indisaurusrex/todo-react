@@ -1,6 +1,9 @@
 import "./App.css";
 import React from "react";
 import sun from './sunandclouds.jpeg';
+import Button from '@material-ui/core/Button';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 
 let todos = [
   {"title": "Get a hair cut", "location": "hair dressers", "dueTime": "0900", "dueDate": "31052021", "done": true},
@@ -44,7 +47,14 @@ class Date extends React.Component {
 class AddNewTodo extends React.Component {
   render() {
     return (
-      <button>Add new item</button>
+      <Button
+        variant="contained"
+        color="white"
+        size="small"
+        startIcon={<AddCircleIcon />}
+      >
+        Add an item
+      </Button>
     )
   }
 }
