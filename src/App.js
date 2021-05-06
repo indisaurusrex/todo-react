@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { Component } from "react";
+import React from "react";
 
 let todos = [
   {"title": "Get a hair cut", "location": "hair dressers", "dueTime": "0900", "dueDate": "31052021", "done": true},
@@ -33,8 +33,9 @@ class Progress extends React.Component {
 
 class Date extends React.Component {
   render() {
+    
     return (
-      <p>Tues 8th May</p>
+      <p>Today</p>
     );
   }
 }
@@ -50,7 +51,7 @@ class AddNewTodo extends React.Component {
 class HeaderImage extends React.Component {
   render() {
     return (
-      <img />
+      <img alt="empty"/>
     )
   }
 }
