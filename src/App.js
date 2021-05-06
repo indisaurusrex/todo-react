@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import sun from './sunandclouds.jpeg';
 
 let todos = [
   {"title": "Get a hair cut", "location": "hair dressers", "dueTime": "0900", "dueDate": "31052021", "done": true},
@@ -51,7 +52,7 @@ class AddNewTodo extends React.Component {
 class HeaderImage extends React.Component {
   render() {
     return (
-      <img alt="empty"/>
+      <img alt="empty" src={sun}/>
     )
   }
 }
