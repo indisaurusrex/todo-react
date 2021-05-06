@@ -1,64 +1,104 @@
 import "./App.css";
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+import React, { Component } from "react";
 
-const useStyles = makeStyles({
-  root: {
-    width: "60%",
-    flexGrow: 1,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+let todos = [
+  {"title": "Get a hair cut", "location": "hair dressers", "dueTime": "0900", "dueDate": "31052021", "done": true},
+  {"title": "Do the dishes", "location": "kitchen", "dueTime": "1300", "dueDate": "31052021", "done": false},
+  {"title": "Run the show", "location": "living room", "dueTime": "1003", "dueDate": "31052021", "done": false},
+  {"title": "Join the party", "location": "balcony", "dueTime": "1900", "dueDate": "31052021", "done": false}
+];
 
-function SimpleCard() {
-  const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardActions>
-        <Button size="small">Add something</Button>
-      </CardActions>
-      <CardContent>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <Typography variant="h5" component="h2">
-              Todo title
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography className={classes.pos} color="textSecondary">
-              due date
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
-  );
+class MainBackground extends React.Component {
+  render() {
+    return (
+      <div className="todo-list">
+        <HeaderImage />
+        <Date />
+        <AddNewTodo />
+        <Progress />
+        <TodoList items={todos}/>
+      </div>
+    )
+  }
 }
+
+class Progress extends React.Component {
+  render() {
+    return(
+      <p>Progress goes here</p>
+    )
+  }
+}
+
+class Date extends React.Component {
+  render() {
+    return (
+      <p>Tues 8th May</p>
+    );
+  }
+}
+
+class AddNewTodo extends React.Component {
+  render() {
+    return (
+      <button>Add new item</button>
+    )
+  }
+}
+
+class HeaderImage extends React.Component {
+  render() {
+    return (
+      <img />
+    )
+  }
+}
+
+class TodoList extends React.Component {
+  render() {
+
+    const rows = [];
+
+    this.props.items.forEach((item) => {
+      rows.push(<TodoItem item={item} />)
+    });
+
+    return (
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      </div>
+    )
+  }
+}
+
+class TodoItem extends React.Component {
+  render() {
+    const item = this.props.item;
+    return (
+      <tr>
+        <td>{item.title}</td>
+        <td>{item.dueTime}</td>
+      </tr>
+    );
+  }
+}
+
 
 function App() {
   return (
     <div className="App">
       <h1>ToDo List App</h1>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <SimpleCard />
-      </div>
+      <MainBackground />
     </div>
   );
 }
