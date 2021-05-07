@@ -3,6 +3,7 @@ import React from "react";
 import sun from "./sunandclouds.jpeg";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import Paper from "@material-ui/core/Paper";
 
 let todos = [
   {
@@ -60,9 +61,9 @@ class Date extends React.Component {
   render() {
     return (
       <div id="date-in-header" className="flex-item">
-      <p>Tues 4th May</p>
+        <p>Tues 4th May</p>
       </div>
-      );
+    );
   }
 }
 
@@ -81,12 +82,14 @@ class AddNewTodo extends React.Component {
 class HeaderImage extends React.Component {
   render() {
     return (
-      <div className="container" style={{ 
-        backgroundImage: `url(${sun})`,
-        width: '100%',
-        height: '10em' 
-        }}>
-          
+      <div
+        className="container"
+        style={{
+          backgroundImage: `url(${sun})`,
+          width: "100%",
+          height: "10em",
+        }}
+      >
         <AddNewTodo />
         <Progress />
         <Date />
@@ -108,7 +111,19 @@ class TodoList extends React.Component {
         <table>
           <thead>
             <tr>
-              <th>Title</th> |<th>Location</th> |<th>Due</th>
+              <Paper elevation={3} style={{ width: "150%" }}>
+                <div className="todo-item-container">
+                  <div className="flex-item">
+                    <th>Title</th>
+                  </div>
+                  <div className="flex-item">
+                    <th>Location</th>
+                  </div>
+                  <div className="flex-item">
+                    <th>Due</th>
+                  </div>
+                </div>
+              </Paper>
             </tr>
           </thead>
           <tbody>{rows}</tbody>
@@ -123,8 +138,13 @@ class TodoItem extends React.Component {
     const item = this.props.item;
     return (
       <tr>
-        <td>{item.title} </td> |<td>{item.location}</td> |
-        <td>{item.dueTime}</td>
+        <Paper elevation={3} style={{ width: '150%' }}>
+          <div className="todo-item-container" style={{ height: '40px' }}>
+            <div className="flex-item">{item.title}</div>
+            <div className="flex-item">{item.location}</div>
+            <div className="flex-item">{item.dueTime}</div>
+          </div>
+        </Paper>
       </tr>
     );
   }
