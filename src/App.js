@@ -49,7 +49,7 @@ class MainBackground extends React.Component {
 class Progress extends React.Component {
   render() {
     return (
-      <div className="flex-item">
+      <div id="progress-in-header" className="flex-item">
         <p>50% done</p>
       </div>
     );
@@ -59,7 +59,7 @@ class Progress extends React.Component {
 class Date extends React.Component {
   render() {
     return (
-      <div className="flex-item">
+      <div id="date-in-header" className="flex-item">
       <p>Tues 4th May</p>
       </div>
       );
@@ -69,7 +69,7 @@ class Date extends React.Component {
 class AddNewTodo extends React.Component {
   render() {
     return (
-      <div className="flex-item">
+      <div id="add-new-todo" className="flex-item">
         <Button variant="contained" size="small" startIcon={<AddCircleIcon />}>
           Add an item
         </Button>
@@ -87,9 +87,9 @@ class HeaderImage extends React.Component {
         height: '10em' 
         }}>
           
-        <Date />
-        <Progress />
         <AddNewTodo />
+        <Progress />
+        <Date />
       </div>
     );
   }
@@ -132,7 +132,7 @@ class TodoItem extends React.Component {
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <h1>ToDo List App</h1>
       <MainBackground />
     </div>

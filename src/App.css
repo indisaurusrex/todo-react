@@ -4,6 +4,9 @@ body {
 
 .App {
   text-align: center;
+  position: absolute;
+  left: 40%;
+  top: 5em;
 }
 
 .App-logo {
@@ -53,16 +56,18 @@ body {
 }
 
 .container {
+  margin-top: 20%;
   display: flex;
   flex-direction: row;
   align-content: space-between;
 }
 
-.flex-container {
-  display: flex;
+#date-in-header {
+  margin-top: 40%;
 }
-#date {
-  flex: 1;
+
+#progress-in-header {
+  margin-top: 15%;
 }
 
 .flex-item {
