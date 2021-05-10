@@ -4,6 +4,7 @@ import sun from "./sunandclouds.jpeg";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import Moment from "react-moment";
+import Checkbox from '@material-ui/core/Checkbox';
 
 let todos = [
   {
@@ -118,10 +119,11 @@ class TodoList extends React.Component {
 
     this.props.items.forEach((item) => {
       rows.push(
-        <tr>
+        <tr key={item.id}>
           <th>{item.title}</th>
           <th>{item.location}</th>
           <th>{item.dueTime}</th>
+          <th><Checkbox checked={item.done}/></th>
         </tr>
       );
     });
@@ -134,6 +136,7 @@ class TodoList extends React.Component {
               <th>Title</th>
               <th>Location</th>
               <th>Due</th>
+              <th>Done</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>
