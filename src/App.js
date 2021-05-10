@@ -4,7 +4,7 @@ import sun from "./sunandclouds.jpeg";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import Moment from "react-moment";
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from "@material-ui/core/Checkbox";
 
 let todos = [
   {
@@ -21,7 +21,7 @@ let todos = [
     location: "kitchen",
     dueTime: "1300",
     dueDate: "31052021",
-    done: false,
+    done: true,
   },
   {
     id: 2,
@@ -40,13 +40,29 @@ let todos = [
     done: false,
   },
 ];
-
-class MainBackground extends React.Component {
+class Date extends React.Component {
   render() {
     return (
-      <div>
-        <HeaderImage />
-        <TodoList items={todos} />
+      <div id="date-in-header" className="flex-item">
+        <Moment date={new Date()} format={"d MMMM YYYY"} />
+      </div>
+    );
+  }
+}
+class HeaderImage extends React.Component {
+  render() {
+    let items = this.props.items;
+    return (
+      <div
+        className="container"
+        style={{
+          backgroundImage: `url(${sun})`,
+          height: "10em",
+        }}
+      >
+        <AddNewTodo />
+        <Progress items={items} />
+        <Date />
       </div>
     );
   }
@@ -73,16 +89,6 @@ class Progress extends React.Component {
   }
 }
 
-class Date extends React.Component {
-  render() {
-    return (
-      <div id="date-in-header" className="flex-item">
-        <Moment date={new Date()} format={"d MMMM YYYY"}/>
-      </div>
-    );
-  }
-}
-
 class AddNewTodo extends React.Component {
   render() {
     return (
@@ -95,25 +101,39 @@ class AddNewTodo extends React.Component {
   }
 }
 
-class HeaderImage extends React.Component {
+class MainBackground extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: todos,
+    };
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+  }
+
+  handleCheckboxChange(item) {
+    let tempItems = this.state.items;
+    tempItems[item.id].done = !tempItems[item.id].done;
+
+    this.setState({
+      items: tempItems,
+    });
+  }
+
   render() {
     return (
-      <div
-        className="container"
-        style={{
-          backgroundImage: `url(${sun})`,
-          height: "10em",
-        }}
-      >
-        <AddNewTodo />
-        <Progress items={todos} />
-        <Date />
+      <div>
+        <HeaderImage items={this.state.items} />
+        <TodoList
+          items={this.state.items}
+          changeCheckbox={this.handleCheckboxChange}
+        />
       </div>
     );
   }
 }
 
 class TodoList extends React.Component {
+
   render() {
     const rows = [];
 
@@ -123,7 +143,12 @@ class TodoList extends React.Component {
           <th>{item.title}</th>
           <th>{item.location}</th>
           <th>{item.dueTime}</th>
-          <th><Checkbox checked={item.done}/></th>
+          <th>
+            <Checkbox
+              checked={item.done}
+              onChange={() => this.props.changeCheckbox(item)}
+            />
+          </th>
         </tr>
       );
     });
