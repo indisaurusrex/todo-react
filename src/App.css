@@ -81,3 +81,14 @@ body {
 .flex-item {
   flex: auto;
 }
+
+th {
+  font-weight: lighter;
+  text-align: left;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+table {
+  width: 100%;
+}

@@ -3,7 +3,6 @@ import React from "react";
 import sun from "./sunandclouds.jpeg";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import Paper from "@material-ui/core/Paper";
 
 let todos = [
   {
@@ -103,7 +102,13 @@ class TodoList extends React.Component {
     const rows = [];
 
     this.props.items.forEach((item) => {
-      rows.push(<TodoItem item={item} />);
+      rows.push(
+        <tr>
+          <th>{item.title}</th>
+          <th>{item.location}</th>
+          <th>{item.dueTime}</th>
+        </tr>
+      );
     });
 
     return (
@@ -111,41 +116,14 @@ class TodoList extends React.Component {
         <table>
           <thead>
             <tr>
-              <Paper elevation={3} style={{ width: "150%" }}>
-                <div className="todo-item-container">
-                  <div className="flex-item">
-                    <th>Title</th>
-                  </div>
-                  <div className="flex-item">
-                    <th>Location</th>
-                  </div>
-                  <div className="flex-item">
-                    <th>Due</th>
-                  </div>
-                </div>
-              </Paper>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Due</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>
         </table>
       </div>
-    );
-  }
-}
-
-class TodoItem extends React.Component {
-  render() {
-    const item = this.props.item;
-    return (
-      <tr>
-        <Paper elevation={3} style={{ width: '150%' }}>
-          <div className="todo-item-container" style={{ height: '40px' }}>
-            <div className="flex-item">{item.title}</div>
-            <div className="flex-item">{item.location}</div>
-            <div className="flex-item">{item.dueTime}</div>
-          </div>
-        </Paper>
-      </tr>
     );
   }
 }
