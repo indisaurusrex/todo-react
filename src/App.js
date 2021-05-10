@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
-import HeaderImage from './components/HeaderImage';
-import TodoList from './components/TodoList';
+import HeaderImage from "./components/HeaderImage";
+import TodoList from "./components/TodoList";
 
 let todos = [
   {
@@ -43,8 +43,10 @@ class MainBackground extends React.Component {
     super(props);
     this.state = {
       items: todos,
+      formDisplay: false,
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   handleCheckboxChange(item) {
@@ -56,10 +58,20 @@ class MainBackground extends React.Component {
     });
   }
 
+  toggleForm() {
+    this.setState({
+      formDisplay: !this.state.formDisplay,
+    });
+  }
+
   render() {
     return (
       <div>
-        <HeaderImage items={this.state.items} />
+        <HeaderImage
+          items={this.state.items}
+          formDisplay={this.state.formDisplay}
+          toggleForm={this.toggleForm}
+        />
         <TodoList
           items={this.state.items}
           changeCheckbox={this.handleCheckboxChange}
@@ -68,8 +80,6 @@ class MainBackground extends React.Component {
     );
   }
 }
-
-
 
 function App() {
   return (

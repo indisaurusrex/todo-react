@@ -92,3 +92,7 @@ th {
 table {
   width: 100%;
 }
+
+.add-appointment .card-body {
+  display: none;
+}
