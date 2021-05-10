@@ -6,6 +6,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 let todos = [
   {
+    id: 0,
     title: "Get a hair cut",
     location: "hair dressers",
     dueTime: "0900",
@@ -13,6 +14,7 @@ let todos = [
     done: true,
   },
   {
+    id: 1,
     title: "Do the dishes",
     location: "kitchen",
     dueTime: "1300",
@@ -20,6 +22,7 @@ let todos = [
     done: false,
   },
   {
+    id: 2,
     title: "Run the show",
     location: "living room",
     dueTime: "1003",
@@ -27,6 +30,7 @@ let todos = [
     done: false,
   },
   {
+    id: 3,
     title: "Join the party",
     location: "balcony",
     dueTime: "1900",
@@ -48,9 +52,19 @@ class MainBackground extends React.Component {
 
 class Progress extends React.Component {
   render() {
+    let doneCount = 0;
+
+    this.props.items.map((item) => {
+      if (item.done === true) {
+        doneCount += 1;
+      }
+    });
+
+    let donePercent = (doneCount / this.props.items.length) * 100;
+
     return (
       <div id="progress-in-header" className="flex-item">
-        <p>50% done</p>
+        <p>{donePercent}% done</p>
       </div>
     );
   }
@@ -85,12 +99,11 @@ class HeaderImage extends React.Component {
         className="container"
         style={{
           backgroundImage: `url(${sun})`,
-          width: "100%",
           height: "10em",
         }}
       >
         <AddNewTodo />
-        <Progress />
+        <Progress items={todos} />
         <Date />
       </div>
     );
