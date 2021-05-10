@@ -3,6 +3,7 @@ import React from "react";
 import sun from "./sunandclouds.jpeg";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import Moment from "react-moment";
 
 let todos = [
   {
@@ -58,6 +59,7 @@ class Progress extends React.Component {
       if (item.done === true) {
         doneCount += 1;
       }
+      return doneCount;
     });
 
     let donePercent = (doneCount / this.props.items.length) * 100;
@@ -74,7 +76,7 @@ class Date extends React.Component {
   render() {
     return (
       <div id="date-in-header" className="flex-item">
-        <p>Tues 4th May</p>
+        <Moment date={new Date()} format={"d MMMM YYYY"}/>
       </div>
     );
   }
