@@ -44,9 +44,16 @@ class MainBackground extends React.Component {
     this.state = {
       items: todos,
       formDisplay: false,
+      uniqueId: 0,
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  findNextId() {
+    let newId = Math.max.apply(Math, this.state.items.map(function(o) { return o.id; }))
+    return newId + 1;
   }
 
   handleCheckboxChange(item) {
@@ -56,12 +63,25 @@ class MainBackground extends React.Component {
     this.setState({
       items: tempItems,
     });
+
+    console.log(this.state.items);
   }
 
   toggleForm() {
     this.setState({
       formDisplay: !this.state.formDisplay,
     });
+  }
+
+  addTodo(item) {
+    let tempItems = this.state.items;
+    item.id = this.findNextId();
+    item.done = false;
+    tempItems.push(item);
+    this.setState({
+      items: tempItems
+    });
+    console.log(this.state.items);
   }
 
   render() {
@@ -71,6 +91,7 @@ class MainBackground extends React.Component {
           items={this.state.items}
           formDisplay={this.state.formDisplay}
           toggleForm={this.toggleForm}
+          addTodo={this.addTodo}
         />
         <TodoList
           items={this.state.items}

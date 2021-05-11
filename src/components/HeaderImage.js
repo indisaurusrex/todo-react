@@ -18,6 +18,7 @@ class HeaderImage extends React.Component {
         <AddNewTodo
           formDisplay={this.props.formDisplay}
           toggleForm={this.props.toggleForm}
+          addTodo={this.props.addTodo}
         />
         <Progress items={items} />
         <Date />

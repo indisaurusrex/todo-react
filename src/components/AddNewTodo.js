@@ -11,13 +11,47 @@ class AddNewTodo extends React.Component {
       dueDate: "",
       dueTime: "",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
+
+  handleChange(e) {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleAdd(e) {
+    e.preventDefault();
+    let tempTodo = {
+      title: this.state.title,
+      location: this.state.location,
+      dueDate: this.state.dueDate,
+      dueTime: this.state.dueTime,
+    };
+
+    this.props.addTodo(tempTodo);
+
+    this.setState({
+      title: "",
+      location: "",
+      dueDate: "",
+      dueTime: "",
+    });
+    this.props.toggleForm();
+  }
+
   render() {
     return (
       <div id="add-new-todo" className="flex-item">
         <div
           className={
-            'card textcenter mt-3 ' +
+            "card textcenter mt-3 " +
             (this.props.formDisplay ? "" : "add-appointment")
           }
         >
@@ -32,7 +66,7 @@ class AddNewTodo extends React.Component {
           </Button>
 
           <div className="card-body">
-            <form id="aptForm" noValidate>
+            <form id="aptForm" noValidate onSubmit={this.handleAdd}>
               <div className="form-group form-row">
                 <label
                   className="col-md-2 col-form-label text-md-right"
@@ -47,6 +81,8 @@ class AddNewTodo extends React.Component {
                     className="form-control"
                     name="title"
                     placeholder="To do title"
+                    value={this.state.title}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
@@ -64,6 +100,8 @@ class AddNewTodo extends React.Component {
                     className="form-control"
                     name="location"
                     placeholder="Location"
+                    value={this.state.location}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
@@ -81,6 +119,8 @@ class AddNewTodo extends React.Component {
                     className="form-control"
                     name="dueDate"
                     id="dueDate"
+                    value={this.state.dueDate}
+                    onChange={this.handleChange}
                   />
                 </div>
                 <label
@@ -95,18 +135,22 @@ class AddNewTodo extends React.Component {
                     className="form-control"
                     name="dueTime"
                     id="dueTime"
+                    value={this.state.dueTime}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
 
               <div className="form-group form-row mb-0">
                 <div className="offset-md-2 col-md-10">
-                  <button
+                  <Button
                     type="submit"
-                    className="btn btn-primary d-block ml-auto"
+                    variant="contained"
+                    size="small"
+                    startIcon={<AddCircleIcon />}
                   >
                     Add it to the list
-                  </button>
+                  </Button>
                 </div>
               </div>
             </form>
