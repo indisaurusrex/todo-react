@@ -12,7 +12,9 @@ class Progress extends React.Component {
       });
   
       let donePercent = (doneCount / this.props.items.length) * 100;
+      donePercent = Math.round((donePercent + Number.EPSILON) * 100) / 100;
   
+
       return (
         <div id="progress-in-header" className="flex-item">
           <p>{donePercent}% done</p>
