@@ -2,22 +2,9 @@ import React from 'react';
 
 class Progress extends React.Component {
     render() {
-      let doneCount = 0;
-  
-      this.props.items.map((item) => {
-        if (item.done === true) {
-          doneCount += 1;
-        }
-        return doneCount;
-      });
-  
-      let donePercent = (doneCount / this.props.items.length) * 100;
-      donePercent = Math.round((donePercent + Number.EPSILON) * 100) / 100;
-  
-
       return (
-        <div id="progress-in-header" className="flex-item">
-          <p>{donePercent}% done</p>
+        <div className="progress-in-header">
+          <p>{this.props.donePercent}% done</p>
         </div>
       );
     }

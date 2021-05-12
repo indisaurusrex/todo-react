@@ -5,19 +5,8 @@ body {
 .App {
   text-align: center;
   position: absolute;
-  left: 40%;
+  left: 35%;
   top: 5em;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -31,17 +20,40 @@ body {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-image {
+  width: 480px;
+  height: 350px;
+}
+.background-image {
+  border-radius: 5px;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  height: 40%;
+  object-fit: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark-shade {
+  position: absolute;
+  background-color: rgba(158, 99, 217, 0.4);
+  width: 30%;
+  height: 273px;
+  border-radius: 5px;
+  left: 70%;
+}
+
+.progress-in-header {
+  z-index: 1;
+  position: absolute;
+  margin-top: 180px;
+  margin-left: 20px;
+}
+
+.date-in-header {
+  z-index: 1;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 20px;
 }
 
 .todo-list {
@@ -49,17 +61,6 @@ body {
   width: 60%;
   display: flex;
   flex-direction: column;
-}
-
-.todo-table {
-  display: flex;
-}
-
-.container {
-  margin-top: 20%;
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
 }
 
 .todo-item-container {
@@ -70,18 +71,6 @@ body {
   width: 100%;
 }
 
-#date-in-header {
-  margin-top: 40%;
-}
-
-#progress-in-header {
-  margin-top: 15%;
-}
-
-.flex-item {
-  flex: auto;
-}
-
 th {
   font-weight: lighter;
   text-align: left;
@@ -90,7 +79,7 @@ th {
 }
 
 table {
-  width: 100%;
+  width: 110%;
 }
 
 .add-appointment .card-body {

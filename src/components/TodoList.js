@@ -24,7 +24,7 @@ class TodoList extends React.Component {
   
       return (
         <div>
-          <table>
+          <table className="todo-table">
             <thead>
               <tr>
                 <th>Title</th>

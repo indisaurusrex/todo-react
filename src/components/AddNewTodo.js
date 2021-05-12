@@ -55,9 +55,7 @@ class AddNewTodo extends React.Component {
             (this.props.formDisplay ? "" : "add-appointment")
           }
         >
-          {/* <div className="card textcenter mt-3"> */}
           <Button
-            variant="contained"
             size="small"
             startIcon={<AddCircleIcon />}
             onClick={this.props.toggleForm}
@@ -145,7 +143,6 @@ class AddNewTodo extends React.Component {
                 <div className="offset-md-2 col-md-10">
                   <Button
                     type="submit"
-                    variant="contained"
                     size="small"
                     startIcon={<AddCircleIcon />}
                   >
