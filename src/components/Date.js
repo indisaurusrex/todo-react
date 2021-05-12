@@ -5,7 +5,7 @@ class Date extends React.Component {
     render() {
       return (
         <div className="date-in-header">
-          <Moment date={new Date()} format={"d MMMM YYYY"} />
+          <Moment date={new Date()} format={"dd MMMM YYYY"} />
         </div>
       );
     }
