@@ -29,9 +29,9 @@ class HeaderImage extends React.Component {
       imgSrc = weather01;
     } else if (donePercent === 20 || donePercent < 40) {
       imgSrc = weather02;
-    } else if (donePercent === 40 || donePercent < 60) {
+    } else if (donePercent === 40 || donePercent < 70) {
       imgSrc = weather03;
-    } else if (donePercent === 60 || donePercent < 80) {
+    } else if (donePercent === 70 || donePercent < 95) {
       imgSrc = weather04;
     } else {
       imgSrc = weather05;
