@@ -48,7 +48,7 @@ class AddNewTodo extends React.Component {
 
   render() {
     return (
-      <div id="add-new-todo" className="flex-item">
+      <div>
         <div
           className={
             "card textcenter mt-3 " +
@@ -63,22 +63,22 @@ class AddNewTodo extends React.Component {
             Add an item
           </Button>
 
-          <div className="card-body">
+          <div className="card-body" id="add-todo-card">
             <form id="aptForm" noValidate onSubmit={this.handleAdd}>
               <div className="form-group form-row">
-                <label
+                {/* <label
                   className="col-md-2 col-form-label text-md-right"
                   htmlFor="title"
                   readOnly
                 >
                   What is it?
-                </label>
+                </label> */}
                 <div className="col-md-10">
                   <input
                     type="text"
                     className="form-control"
                     name="title"
-                    placeholder="To do title"
+                    placeholder="What is it?"
                     value={this.state.title}
                     onChange={this.handleChange}
                   />
@@ -86,18 +86,18 @@ class AddNewTodo extends React.Component {
               </div>
 
               <div className="form-group form-row">
-                <label
+                {/* <label
                   className="col-md-2 col-form-label text-md-right"
                   htmlFor="location"
                 >
                   Where is it?
-                </label>
+                </label> */}
                 <div className="col-md-10">
                   <input
                     type="text"
                     className="form-control"
                     name="location"
-                    placeholder="Location"
+                    placeholder="Where is it?"
                     value={this.state.location}
                     onChange={this.handleChange}
                   />
@@ -105,12 +105,12 @@ class AddNewTodo extends React.Component {
               </div>
 
               <div className="form-group form-row">
-                <label
+                {/* <label
                   className="col-md-2 col-form-label text-md-right"
                   htmlFor="dueDate"
                 >
                   What day is it due?
-                </label>
+                </label> */}
                 <div className="col-md-4">
                   <input
                     type="date"
@@ -121,13 +121,13 @@ class AddNewTodo extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <label
+                {/* <label
                   className="col-md-2 col-form-label text-md-right"
                   htmlFor="dueTime"
                 >
                   What time?
-                </label>
-                <div className="col-md-4">
+                </label> */}
+                <div className="col-md-4 form-row">
                   <input
                     type="time"
                     className="form-control"
@@ -146,7 +146,7 @@ class AddNewTodo extends React.Component {
                     size="small"
                     startIcon={<AddCircleIcon />}
                   >
-                    Add it to the list
+                    Go!
                   </Button>
                 </div>
               </div>

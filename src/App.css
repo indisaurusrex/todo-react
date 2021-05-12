@@ -47,6 +47,8 @@ body {
   position: absolute;
   margin-top: 180px;
   margin-left: 20px;
+  color: aliceblue;
+  font-weight: bolder;
 }
 
 .date-in-header {
@@ -54,6 +56,8 @@ body {
   position: absolute;
   margin-top: 90px;
   margin-left: 20px;
+  color: aliceblue;
+  font-weight: bolder;
 }
 
 .todo-list {
@@ -84,4 +88,17 @@ table {
 
 .add-appointment .card-body {
   display: none;
+}
+
+#add-todo-card {
+  position: fixed;
+  width: 200px;
+  height: 243px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  left: 600px;
+}
+
+.form-row {
+  padding-top: 12px;
 }
