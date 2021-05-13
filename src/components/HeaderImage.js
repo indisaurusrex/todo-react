@@ -16,14 +16,12 @@ class HeaderImage extends React.Component {
     let imgSrc = "";
 
     items.map((item) => {
-      if (item.done === true) {
+      if (item.done) {
         doneCount += 1;
       }
-      return doneCount;
     });
 
-    donePercent = (doneCount / this.props.items.length) * 100;
-    donePercent = Math.round((donePercent + Number.EPSILON) * 100) / 100;
+    donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100);
 
     if (donePercent < 20) {
       imgSrc = weather01;
@@ -36,22 +34,18 @@ class HeaderImage extends React.Component {
     } else {
       imgSrc = weather05;
     }
-    
 
     return (
-      <div
-        className="header-image"
-      >
+      <div className="header-image">
         <img className="background-image" src={imgSrc} alt="weather" />
         <div className="dark-shade">
-
-        <AddNewTodo
-          formDisplay={this.props.formDisplay}
-          toggleForm={this.props.toggleForm}
-          addTodo={this.props.addTodo}
-        />
-        <Progress donePercent={donePercent} />
-        <Date />
+          <AddNewTodo
+            formDisplay={this.props.formDisplay}
+            toggleForm={this.props.toggleForm}
+            addTodo={this.props.addTodo}
+          />
+          <Progress donePercent={donePercent} />
+          <Date />
         </div>
       </div>
     );
