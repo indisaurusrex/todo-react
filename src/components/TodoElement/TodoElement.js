@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 class TodoElement extends React.Component {
-    render() {
-        return "done";
-    }
+  render() {
+    return "done";
+  }
 }
 
 export default TodoElement;

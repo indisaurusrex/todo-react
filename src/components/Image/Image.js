@@ -8,7 +8,7 @@ import weather05 from "../../images/weather-05.jpg";
 class Image extends React.Component {
   render() {
     let donePercent = this.props.donePercent;
-    let imgSrc = '';
+    let imgSrc = "";
 
     if (donePercent < 20) {
       imgSrc = weather01;

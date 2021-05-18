@@ -1,4 +1,3 @@
-export { default as App } from "./App/App";
 export { default as AddNewTodo } from "./AddNewTodo/AddNewTodo";
 export { default as Date } from "./Date/Date";
 export { default as HeaderImage } from "./HeaderImage/HeaderImage";
