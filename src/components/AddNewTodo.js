@@ -66,13 +66,6 @@ class AddNewTodo extends React.Component {
           <div className="card-body" id="add-todo-card">
             <form id="aptForm" noValidate onSubmit={this.handleAdd}>
               <div className="form-group form-row">
-                {/* <label
-                  className="col-md-2 col-form-label text-md-right"
-                  htmlFor="title"
-                  readOnly
-                >
-                  What is it?
-                </label> */}
                 <div className="col-md-10">
                   <input
                     type="text"
@@ -86,12 +79,6 @@ class AddNewTodo extends React.Component {
               </div>
 
               <div className="form-group form-row">
-                {/* <label
-                  className="col-md-2 col-form-label text-md-right"
-                  htmlFor="location"
-                >
-                  Where is it?
-                </label> */}
                 <div className="col-md-10">
                   <input
                     type="text"
@@ -105,12 +92,6 @@ class AddNewTodo extends React.Component {
               </div>
 
               <div className="form-group form-row">
-                {/* <label
-                  className="col-md-2 col-form-label text-md-right"
-                  htmlFor="dueDate"
-                >
-                  What day is it due?
-                </label> */}
                 <div className="col-md-4">
                   <input
                     type="date"
@@ -121,12 +102,6 @@ class AddNewTodo extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {/* <label
-                  className="col-md-2 col-form-label text-md-right"
-                  htmlFor="dueTime"
-                >
-                  What time?
-                </label> */}
                 <div className="col-md-4 form-row">
                   <input
                     type="time"

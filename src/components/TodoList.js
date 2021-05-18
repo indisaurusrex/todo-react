@@ -3,23 +3,26 @@ import Checkbox from "@material-ui/core/Checkbox";
 
 class TodoList extends React.Component {
   render() {
-    const rows = [];
 
-    this.props.items.forEach((item) => {
-      rows.push(
+    let items = this.props.items;
+
+    let rows = items.map((item) => {
+      let row = (
         <tr key={item.id}>
           <th id="title-th">{item.title}</th>
           <th>{item.location}</th>
           <th>{item.dueTime}</th>
           <th>
-            <Checkbox
-              id="checkbox"
-              checked={item.done}
+            <input
+              id={item.id + "checkbox"}
+              type="checkbox"
+              defaultChecked={item.done}
               onChange={() => this.props.changeCheckbox(item)}
             />
           </th>
         </tr>
       );
+      return row;
     });
 
     return (

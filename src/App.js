@@ -8,7 +8,7 @@ let todos = [
     id: 0,
     title: "Get a hair cut",
     location: "hair dressers",
-    dueTime: "0900",
+    dueTime: "09:00",
     dueDate: "31052021",
     done: true,
   },
@@ -16,7 +16,7 @@ let todos = [
     id: 1,
     title: "Do the dishes",
     location: "kitchen",
-    dueTime: "1300",
+    dueTime: "13:00",
     dueDate: "31052021",
     done: true,
   },
@@ -24,7 +24,7 @@ let todos = [
     id: 2,
     title: "Run the show",
     location: "living room",
-    dueTime: "1003",
+    dueTime: "10:03",
     dueDate: "31052021",
     done: false,
   },
@@ -32,7 +32,7 @@ let todos = [
     id: 3,
     title: "Join the party",
     location: "balcony",
-    dueTime: "1900",
+    dueTime: "19:00",
     dueDate: "31052021",
     done: false,
   },
@@ -60,11 +60,12 @@ class MainBackground extends React.Component {
     let tempItems = this.state.items;
     tempItems[item.id].done = !tempItems[item.id].done;
 
+    
+
     this.setState({
       items: tempItems,
     });
 
-    console.log(this.state.items);
   }
 
   toggleForm() {
@@ -81,10 +82,12 @@ class MainBackground extends React.Component {
     this.setState({
       items: tempItems
     });
-    console.log(this.state.items);
   }
 
   render() {
+
+    let items = this.state.items;
+
     return (
       <div>
         <HeaderImage
@@ -94,7 +97,7 @@ class MainBackground extends React.Component {
           addTodo={this.addTodo}
         />
         <TodoList
-          items={this.state.items}
+          items={items}
           changeCheckbox={this.handleCheckboxChange}
         />
       </div>
