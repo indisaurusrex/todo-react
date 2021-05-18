@@ -1,8 +1,9 @@
 import React from "react";
-import Date from "./Date";
-import Progress from "./Progress";
-import AddNewTodo from "./AddNewTodo";
-import Image from './Image';
+import { Date, Progress, AddNewTodo, Image } from '../index';
+// import Date from "../Date/Date";
+// import Progress from "../Progress";
+// import AddNewTodo from "../AddNewTodo/AddNewTodo";
+// import Image from '../Image';
 
 class HeaderImage extends React.Component {
   render() {

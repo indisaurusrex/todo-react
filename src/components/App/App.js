@@ -1,7 +1,8 @@
 import "./App.css";
 import React from "react";
-import HeaderImage from "./components/HeaderImage";
-import TodoList from "./components/TodoList";
+import { HeaderImage, TodoList } from '../index';
+// import HeaderImage from "./components/HeaderImage";
+// import TodoList from "./components/TodoList";
 
 let todos = [
   {
