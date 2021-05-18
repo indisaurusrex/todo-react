@@ -1,7 +1,6 @@
 import "./App.css";
 import React from "react";
-import HeaderImage from "./components/HeaderImage";
-import TodoList from "./components/TodoList";
+import { HeaderImage, TodoList } from "../index";
 
 let todos = [
   {
@@ -52,7 +51,12 @@ class MainBackground extends React.Component {
   }
 
   findNextId() {
-    let newId = Math.max.apply(Math, this.state.items.map(function(o) { return o.id; }))
+    let newId = Math.max.apply(
+      Math,
+      this.state.items.map(function (o) {
+        return o.id;
+      })
+    );
     return newId + 1;
   }
 
@@ -60,12 +64,9 @@ class MainBackground extends React.Component {
     let tempItems = this.state.items;
     tempItems[item.id].done = !tempItems[item.id].done;
 
-    
-
     this.setState({
       items: tempItems,
     });
-
   }
 
   toggleForm() {
@@ -80,12 +81,11 @@ class MainBackground extends React.Component {
     item.done = false;
     tempItems.push(item);
     this.setState({
-      items: tempItems
+      items: tempItems,
     });
   }
 
   render() {
-
     let items = this.state.items;
 
     return (
@@ -96,10 +96,7 @@ class MainBackground extends React.Component {
           toggleForm={this.toggleForm}
           addTodo={this.addTodo}
         />
-        <TodoList
-          items={items}
-          changeCheckbox={this.handleCheckboxChange}
-        />
+        <TodoList items={items} changeCheckbox={this.handleCheckboxChange} />
       </div>
     );
   }

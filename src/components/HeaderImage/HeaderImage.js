@@ -1,8 +1,5 @@
 import React from "react";
-import Date from "./Date";
-import Progress from "./Progress";
-import AddNewTodo from "./AddNewTodo";
-import Image from './Image';
+import { Date, Progress, AddNewTodo, Image } from "../index";
 
 class HeaderImage extends React.Component {
   render() {
@@ -21,7 +18,7 @@ class HeaderImage extends React.Component {
 
     return (
       <div className="header-image">
-        <Image donePercent={donePercent}/>
+        <Image donePercent={donePercent} />
         <div className="dark-shade">
           <AddNewTodo
             formDisplay={this.props.formDisplay}

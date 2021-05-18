@@ -1,14 +1,14 @@
 import React from "react";
-import weather01 from "../images/weather-01.jpeg";
-import weather02 from "../images/weather-02.jpg";
-import weather03 from "../images/weather-03.jpg";
-import weather04 from "../images/weather-04.jpg";
-import weather05 from "../images/weather-05.jpg";
+import weather01 from "../../images/weather-01.jpeg";
+import weather02 from "../../images/weather-02.jpg";
+import weather03 from "../../images/weather-03.jpg";
+import weather04 from "../../images/weather-04.jpg";
+import weather05 from "../../images/weather-05.jpg";
 
 class Image extends React.Component {
   render() {
     let donePercent = this.props.donePercent;
-    let imgSrc = '';
+    let imgSrc = "";
 
     if (donePercent < 20) {
       imgSrc = weather01;

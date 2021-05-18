@@ -1,10 +1,8 @@
 import React from "react";
-import Checkbox from "@material-ui/core/Checkbox";
 
 class TodoList extends React.Component {
   render() {
-
-    let items = this.props.items;
+    const items = this.props.items;
 
     let rows = items.map((item) => {
       let row = (
