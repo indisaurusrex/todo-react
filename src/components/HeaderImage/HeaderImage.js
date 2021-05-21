@@ -1,36 +1,33 @@
 import React from "react";
-import { Date, Progress, AddNewTodo, Image } from "../index";
+import { TodoDate, Progress, AddNewTodo, Image } from "../index";
 
-class HeaderImage extends React.Component {
-  render() {
-    let items = this.props.items;
-    let doneCount = 0;
-    let donePercent = 0;
+function HeaderImage({ items, formDisplay, toggleForm, addTodo }) {
+  let doneCount = 0;
+  let donePercent = 0;
 
-    items.map((item) => {
-      if (item.done) {
-        doneCount += 1;
-      }
-      return doneCount;
-    });
+  items.map((item) => {
+    if (item.done) {
+      doneCount += 1;
+    }
+    return doneCount;
+  });
 
-    donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100);
+  donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100);
 
-    return (
-      <div className="header-image">
-        <Image donePercent={donePercent} />
-        <div className="dark-shade">
-          <AddNewTodo
-            formDisplay={this.props.formDisplay}
-            toggleForm={this.props.toggleForm}
-            addTodo={this.props.addTodo}
-          />
-          <Progress donePercent={donePercent} />
-          <Date />
-        </div>
+  return (
+    <div className="header-image">
+      <Image donePercent={donePercent} />
+      <div className="dark-shade">
+        <AddNewTodo
+          formDisplay={formDisplay}
+          toggleForm={toggleForm}
+          addTodo={addTodo}
+        />
+        <Progress donePercent={donePercent} />
+        <TodoDate />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default HeaderImage;
