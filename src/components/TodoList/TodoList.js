@@ -1,23 +1,11 @@
 import React from "react";
+import { TodoElement } from "../index";
 
 function TodoList({ items, changeCheckbox }) {
   let rows = items.map((item) => {
-    let row = (
-      <tr key={item.id}>
-        <th id="title-th">{item.title}</th>
-        <th>{item.location}</th>
-        <th>{item.dueTime}</th>
-        <th>
-          <input
-            id={item.id}
-            type="checkbox"
-            defaultChecked={item.done}
-            onChange={() => changeCheckbox(item)}
-          />
-        </th>
-      </tr>
+    return (
+      <TodoElement key={item.id} item={item} changeCheckbox={changeCheckbox} />
     );
-    return row;
   });
 
   return (

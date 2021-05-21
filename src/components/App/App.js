@@ -37,96 +37,35 @@ let todos = [
   },
 ];
 
-// class MainBackground extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       items: todos,
-//       formDisplay: false,
-//       uniqueId: 0,
-//     };
-//     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-//     this.toggleForm = this.toggleForm.bind(this);
-//     this.addTodo = this.addTodo.bind(this);
-//   }
-
-//   findNextId() {
-//     let newId = Math.max.apply(
-//       Math,
-//       this.state.items.map(function (o) {
-//         return o.id;
-//       })
-//     );
-//     return newId + 1;
-//   }
-//   handleCheckboxChange(item) {
-//     let tempItems = this.state.items;
-//     tempItems[item.id].done = !tempItems[item.id].done;
-
-//     this.setState({
-//       items: tempItems,
-//     });
-//   }
-//   toggleForm() {
-//     this.setState({
-//       formDisplay: !this.state.formDisplay,
-//     });
-//   }
-//   addTodo(item) {
-//     let tempItems = this.state.items;
-//     item.id = this.findNextId();
-//     item.done = false;
-//     tempItems.push(item);
-//     this.setState({
-//       items: tempItems,
-//     });
-//   }
-//   render() {
-//     let items = this.state.items;
-
-//     return (
-//       <div>
-//         <HeaderImage
-//           items={this.state.items}
-//           formDisplay={this.state.formDisplay}
-//           toggleForm={this.toggleForm}
-//           addTodo={this.addTodo}
-//         />
-//         <TodoList items={items} changeCheckbox={this.handleCheckboxChange} />
-//       </div>
-//     );
-//   }
-// }
-
 function App() {
-
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
 
   const findNextId = () => {
     const newId = Math.max.apply(
-      Math, items.map(function (o) {
+      Math,
+      items.map(function (o) {
         return o.id;
       })
     );
     return newId + 1;
-  }
+  };
+
   const handleCheckboxChange = (item) => {
-    const checkedItems = items;
+    let checkedItems = items;
     checkedItems[item.id].done = !item.done;
-    setItems(checkedItems);
-    console.log(items);
-  }
+    setItems([...checkedItems]);
+  };
   const toggleForm = () => {
     setFormDisplay(!formDisplay);
-  }
+  };
   const addTodo = (item) => {
     let tempItems = items;
     item.id = findNextId();
     item.done = false;
     tempItems.push(item);
     setItems(tempItems);
-  }
+  };
 
   return (
     <div className="App">
