@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderImage from "../HeaderImage";
+import { HeaderImage } from "../index";
 import { render, fireEvent, screen } from "@testing-library/react";
 
 // test the progress is accurate when you add a new item
