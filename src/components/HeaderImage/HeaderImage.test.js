@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderImage from "../HeaderImage";
+import { HeaderImage, Progress } from "../index";
 import { render, fireEvent, screen } from "@testing-library/react";
 
 // test the progress is accurate when you add a new item
@@ -16,7 +16,7 @@ it("knows how much progress has been made", () => {
       done: true,
     },
     {
-      id: 1,
+      id: 2,
       title: "thing2",
       location: "here",
       dueDate: "31-05-2021",
@@ -24,7 +24,7 @@ it("knows how much progress has been made", () => {
       done: true,
     },
     {
-      id: 1,
+      id: 3,
       title: "thing3",
       location: "there",
       dueDate: "31-05-2021",
@@ -32,7 +32,7 @@ it("knows how much progress has been made", () => {
       done: false,
     },
     {
-      id: 1,
+      id: 4,
       title: "thing4",
       location: "here",
       dueDate: "31-05-2021",
@@ -40,4 +40,10 @@ it("knows how much progress has been made", () => {
       done: false,
     },
   ];
+
+  render(<HeaderImage items={items} />)
+  const percentage = screen.findByText(50);
+  // expect(percentage).toBeTruthy;
+  // what is going here? how do you check that there's 50% now and then add one
+  // and check it's changed to 40%
 });

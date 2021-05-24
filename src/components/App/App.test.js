@@ -1,13 +1,11 @@
 import React from "react";
-import { shallow } from "enzyme";
-import App from "../App";
+import App from "../App/App";
+import { render, screen } from "@testing-library/react";
+import regenerator from "regenerator-runtime/runtime";
+import "@testing-library/jest-dom";
 
-it("renders without crashing", () => {
-  shallow(<App />);
-});
-
-it("renders app header", () => {
-  const wrapper = shallow(<App />);
-  const welcome = <h1>ToDo List App</h1>;
-  expect(wrapper.contains(welcome)).toEqual(true);
+test("loads the items from the list", async () => {
+  render(<App />);
+  const headerText = screen.getByText(/ToDo List App/);
+  expect(headerText).toBeInTheDocument();
 });
