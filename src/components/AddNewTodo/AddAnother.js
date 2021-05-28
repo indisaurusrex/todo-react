@@ -1,9 +1,7 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Field, ErrorMessage } from "formik";
 
-const AddTodoForm = () => {
+const AddTodoForm = (props) => {
   return (
     <div className="card-body" id="add-todo-card">
       <Formik
@@ -11,33 +9,54 @@ const AddTodoForm = () => {
         validate={(values) => {
           const errors = {};
           if (!values.title) {
-            errors.title = "Required";
+            errors.title = "Please provide a title";
+          }
+          if (!values.location) {
+            errors.location = "Please provide a location";
+          }
+          if (!values.dueDate) {
+            errors.dueDate = "Please provide a due date";
+          }
+          if (!values.dueTime) {
+            errors.dueTime = "Please provide a due time";
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
+        onSubmit={(values, { setSubmitting }) => {}}
       >
-        {({ isSubmitting }) => (
-            <Form>
-                <Field type="text" name="title" />
-                <ErrorMessage name="title" component="div" />
-                <Field type="text" name="location" />
-                <ErrorMessage name="location" component="div" />
-                <Field type="date" name="dueDate" />
-                <ErrorMessage name="dueDate" component="div" />
-                <Field type="time" name="dueTime" />
-                <ErrorMessage name="dueTime" component="div" />
-                <button type="submit" disabled={isSubmitting}>Submit</button>
-            </Form>
+        {(props) => (
+          <form onSubmit={props.handleSubmit}>
+            <div style={{ padding: "10px" }}></div>
+            <input
+              type="text"
+              name="title"
+              onChange={props.handleChange}
+              placeholder="What is it?"
+            />
+            <ErrorMessage name="title" component="div" />
+            <div style={{ padding: "10px" }}></div>
+            <input
+              type="text"
+              name="location"
+              onChange={props.handleChange}
+              placeholder="Where is it?"
+            />
+            <ErrorMessage name="location" component="div" />
+            <div style={{ padding: "10px" }}></div>
+            <input type="date" name="dueDate" onChange={props.handleChange} />
+            <ErrorMessage name="dueDate" component="div" />
+            <div style={{ padding: "10px" }}></div>
+            <input type="time" name="dueTime" onChange={props.handleChange} />
+            <ErrorMessage name="dueTime" component="div" />
+            <div style={{ padding: "10px" }}></div>
+            <button type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </form>
         )}
       </Formik>
     </div>
   );
-}
+};
 
 export default AddTodoForm;
