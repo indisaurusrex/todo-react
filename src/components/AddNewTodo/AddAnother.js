@@ -7,7 +7,7 @@ const AddTodoForm = () => {
   return (
     <div className="card-body" id="add-todo-card">
       <Formik
-        initialValues={{ title: "", location: "" }}
+        initialValues={{ title: "", location: "", dueDate: "", dueTime: "" }}
         validate={(values) => {
           const errors = {};
           if (!values.title) {
@@ -28,6 +28,10 @@ const AddTodoForm = () => {
                 <ErrorMessage name="title" component="div" />
                 <Field type="text" name="location" />
                 <ErrorMessage name="location" component="div" />
+                <Field type="date" name="dueDate" />
+                <ErrorMessage name="dueDate" component="div" />
+                <Field type="time" name="dueTime" />
+                <ErrorMessage name="dueTime" component="div" />
                 <button type="submit" disabled={isSubmitting}>Submit</button>
             </Form>
         )}
