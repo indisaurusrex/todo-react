@@ -1,10 +1,15 @@
 import React from "react";
-import { Formik, Field, ErrorMessage } from "formik";
+import { useForm } from 'react-hook-form';
 
 const AddTodoForm = (props) => {
+  const { register, handleSubmit } = useForm();
   return (
     <div className="card-body" id="add-todo-card">
-      <Formik
+      <form onSubmit={props.handleSubmit} >
+
+      </form>
+
+      {/* <Formik
         initialValues={{ title: "", location: "", dueDate: "", dueTime: "" }}
         validate={(values) => {
           const errors = {};
@@ -54,7 +59,7 @@ const AddTodoForm = (props) => {
             </button>
           </form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 };
