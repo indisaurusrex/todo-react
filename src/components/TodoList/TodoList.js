@@ -4,15 +4,19 @@ import { TodoElement } from "../index";
 function TodoList({ items, changeCheckbox }) {
     let sortedList = [...items];
     
-    sortedList.sort((a, b) => {
-      if (a.done < b.done) {
-        return -1;
-      }
-      if (a.done > b.done) {
-        return 1;
-      }
-      return 0;
-    }); 
+    // sortedList.sort((a, b) => {
+    //   if (a.done < b.done) {
+    //     return -1;
+    //   }
+    //   if (a.done > b.done) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // }); 
+
+    sortedList.sort((x, y) => {
+      return x.done - y.done || x.dueDate - y.dueDate;
+    });
 
   let rows = sortedList.map((item) => {
     return (
