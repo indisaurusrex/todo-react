@@ -41,8 +41,8 @@
 .progress-in-header {
   z-index: 1;
   position: absolute;
-  margin-top: 180px;
-  margin-left: 20px;
+  margin-top: 150px;
+  margin-left: 25px;
   color: aliceblue;
   font-weight: bolder;
 }
