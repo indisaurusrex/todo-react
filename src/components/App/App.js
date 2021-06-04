@@ -1,18 +1,19 @@
 import "./App.css";
 import React, { useState } from "react";
 import { HeaderImage, TodoList } from "../index";
-import randomWords from 'random-words';
+import randomWords from "random-words";
+import Card from "@material-ui/core/Card";
 
 let todos = [];
 
 for (var i = 0; i < 10; i++) {
   todos.push({
     id: i,
-    title: randomWords({exactly:1, wordsPerString:3})[0],
+    title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
     location: randomWords(),
-    dueDate: Math.floor(Math.random()*1000000000),
-    done: Math.random()<0.5
-  })
+    dueDate: Math.floor(Math.random() * 1000000000),
+    done: Math.random() < 0.5,
+  });
 }
 
 function App() {
@@ -47,14 +48,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ToDo List App</h1>
-      <HeaderImage
-        items={items}
-        formDisplay={formDisplay}
-        toggleForm={toggleForm}
-        addTodo={addTodo}
-      />
-      <TodoList items={items} changeCheckbox={handleCheckboxChange} />
+      <Card className="root">
+        <h1>ToDo List App</h1>
+        <HeaderImage
+          items={items}
+          formDisplay={formDisplay}
+          toggleForm={toggleForm}
+          addTodo={addTodo}
+        />
+        <TodoList items={items} changeCheckbox={handleCheckboxChange} />
+      </Card>
     </div>
   );
 }

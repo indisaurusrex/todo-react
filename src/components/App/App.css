@@ -98,3 +98,7 @@ table {
 .form-row {
   padding-top: 12px;
 }
+
+.root {
+  min-width: 275px;
+}
