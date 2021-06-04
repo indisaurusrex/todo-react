@@ -5,7 +5,7 @@
   position: absolute;
   left: 35%;
   top: 5em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .App-header {
@@ -104,4 +104,11 @@ table {
 
 .root {
   min-width: 275px;
+}
+
+.rainbow-button {
+  width: 50px;
+  padding-left: 330px;
+  margin-top: 10px;
+  margin-bottom: -15px;
 }

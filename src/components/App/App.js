@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { HeaderImage, TodoList } from "../index";
 import randomWords from "random-words";
 import Card from "@material-ui/core/Card";
+import rainbow from '../../images/rainbow.png';
 
 let todos = [];
 
@@ -55,7 +56,8 @@ function App() {
           toggleForm={toggleForm}
           addTodo={addTodo}
         />
-        <h1>All the things you must do:</h1>
+        <img src={rainbow} alt="tiny rainbow" className="rainbow-button" />
+        <h1>Do these things:</h1>
         <TodoList items={items} changeCheckbox={handleCheckboxChange} />
       </Card>
     </div>
