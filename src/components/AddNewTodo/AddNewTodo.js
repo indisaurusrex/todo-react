@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import { useForm } from "react-hook-form";
 
 function AddNewTodo(props) {
-  const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const [dueTime, setDueTime] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const tempTodo = {
-      title: title,
-      location: location,
-      dueDate: dueDate,
-      dueTime: dueTime,
+  const handleAdd = (data) => {
+   
+    var date2=new Date(`${data.dueDate} ${data.dueTime}:00`);
+    console.log(date2.getTime());
+    const todo = {
+      title: data.title,
+      location: data.location,
+      dueDate: date2.getTime(),
     };
-
-    props.addTodo(tempTodo);
-
-    setTitle("");
-    setLocation("");
-    setDueDate("");
-    setDueTime("");
-
-    props.toggleForm();
+    props.addTodo(todo);
+    reset();
+    props.toggleForm(false);
   };
 
   return (
@@ -42,67 +40,29 @@ function AddNewTodo(props) {
           Add an item
         </Button>
         <div className="card-body" id="add-todo-card">
-          <form id="aptForm" noValidate onSubmit={handleAdd}>
-            <div className="form-group form-row">
-              <div className="col-md-10">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="title"
-                  placeholder="What is it?"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="form-group form-row">
-              <div className="col-md-10">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="location"
-                  placeholder="Where is it?"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="form-group form-row">
-              <div className="col-md-4">
-                <input
-                  type="date"
-                  className="form-control"
-                  name="dueDate"
-                  id="dueDate"
-                  value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
-                />
-              </div>
-              <div className="col-md-4 form-row">
-                <input
-                  type="time"
-                  className="form-control"
-                  name="dueTime"
-                  id="dueTime"
-                  value={dueTime}
-                  onChange={(e) => setDueTime(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="form-group form-row mb-0">
-              <div className="offset-md-2 col-md-10">
-                <Button
-                  type="submit"
-                  size="small"
-                  startIcon={<AddCircleIcon />}
-                >
-                  Go!
-                </Button>
-              </div>
-            </div>
+          <form onSubmit={handleSubmit(handleAdd)}>
+            <div style={{ padding: "10px" }}></div>
+            <input
+              {...register("title", { required: true })}
+              type="text"
+              placeholder="What is it?"
+            />
+            {errors.title && <p>Please enter a title</p>}
+            <div style={{ padding: "10px" }}></div>
+            <input
+              {...register("location", { required: true })}
+              type="text"
+              placeholder="Where is it?"
+            />
+            {errors.location && <p>Please enter a location</p>}
+            <div style={{ padding: "10px" }}></div>
+            <input {...register("dueDate", { required: true })} type="date" />
+            {errors.dueDate && <p>Please enter a date</p>}
+            <div style={{ padding: "10px" }}></div>
+            <input {...register("dueTime", { required: true })} type="time" />
+            {errors.dueTime && <p>Please enter a time</p>}
+            <div style={{ padding: "10px" }}></div>
+            <button type="submit">Submit</button>
           </form>
         </div>
       </div>

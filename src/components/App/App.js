@@ -1,41 +1,19 @@
 import "./App.css";
 import React, { useState } from "react";
 import { HeaderImage, TodoList } from "../index";
+import randomWords from 'random-words';
 
-let todos = [
-  {
-    id: 0,
-    title: "Get a hair cut",
-    location: "hair dressers",
-    dueTime: "09:00",
-    dueDate: "31052021",
-    done: true,
-  },
-  {
-    id: 1,
-    title: "Do the dishes",
-    location: "kitchen",
-    dueTime: "13:00",
-    dueDate: "31052021",
-    done: true,
-  },
-  {
-    id: 2,
-    title: "Run the show",
-    location: "living room",
-    dueTime: "10:03",
-    dueDate: "31052021",
-    done: false,
-  },
-  {
-    id: 3,
-    title: "Join the party",
-    location: "balcony",
-    dueTime: "19:00",
-    dueDate: "31052021",
-    done: false,
-  },
-];
+let todos = [];
+
+for (var i = 0; i < 10; i++) {
+  todos.push({
+    id: i,
+    title: randomWords({exactly:1, wordsPerString:3})[0],
+    location: randomWords(),
+    dueDate: Math.floor(Math.random()*1000000000),
+    done: Math.random()<0.5
+  })
+}
 
 function App() {
   const [items, setItems] = useState(todos);
@@ -64,7 +42,7 @@ function App() {
     item.id = findNextId();
     item.done = false;
     tempItems.push(item);
-    setItems(tempItems);
+    setItems([...tempItems]);
   };
 
   return (

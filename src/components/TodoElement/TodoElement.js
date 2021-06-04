@@ -1,11 +1,12 @@
 import React from "react";
 
 function TodoElement({ item, changeCheckbox }) {
+  const theDate = new Date(item.dueDate);
   return (
     <tr>
       <th id="title-th">{item.title}</th>
       <th>{item.location}</th>
-      <th>{item.dueTime}</th>
+      <th>{`${theDate.getHours()}:${theDate.getMinutes()}`}</th>
       <th>
         <input
           id={item.id}
