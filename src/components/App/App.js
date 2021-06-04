@@ -55,7 +55,7 @@ function App() {
           toggleForm={toggleForm}
           addTodo={addTodo}
         />
-        <h1>All the things you have to do</h1>
+        <h1>All the things you must do:</h1>
         <TodoList items={items} changeCheckbox={handleCheckboxChange} />
       </Card>
     </div>
