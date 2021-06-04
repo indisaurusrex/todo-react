@@ -49,13 +49,13 @@ function App() {
   return (
     <div className="App">
       <Card className="root">
-        <h1>ToDo List App</h1>
         <HeaderImage
           items={items}
           formDisplay={formDisplay}
           toggleForm={toggleForm}
           addTodo={addTodo}
         />
+        <h1>All the things you have to do</h1>
         <TodoList items={items} changeCheckbox={handleCheckboxChange} />
       </Card>
     </div>
