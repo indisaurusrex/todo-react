@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { HeaderImage, TodoList } from "../index";
 import randomWords from "random-words";
 import Card from "@material-ui/core/Card";
-import rainbow from '../../images/rainbow.png';
+import rainbow from "../../images/rainbow.png";
 
 let todos = [];
 
@@ -20,6 +20,7 @@ for (var i = 0; i < 10; i++) {
 function App() {
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
+  const [rainbowBackground, setRainbowBackground] = useState(false);
 
   const findNextId = () => {
     const newId = Math.max.apply(
@@ -48,18 +49,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Card className="root">
-        <HeaderImage
-          items={items}
-          formDisplay={formDisplay}
-          toggleForm={toggleForm}
-          addTodo={addTodo}
-        />
-        <img src={rainbow} alt="tiny rainbow" className="rainbow-button" />
-        <h1>Do these things:</h1>
-        <TodoList items={items} changeCheckbox={handleCheckboxChange} />
-      </Card>
+    <div className={rainbowBackground ? "rainbow-background" : "App"}>
+      {/* <div className="App"> */}
+        <Card className="root">
+          <HeaderImage
+            items={items}
+            formDisplay={formDisplay}
+            toggleForm={toggleForm}
+            addTodo={addTodo}
+          />
+          <img src={rainbow} alt="tiny rainbow" className="rainbow-button" />
+          <h1>Do these things:</h1>
+          <TodoList items={items} changeCheckbox={handleCheckboxChange} />
+        </Card>
+      {/* </div> */}
     </div>
   );
 }
