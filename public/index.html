@@ -30,6 +30,18 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- 
+      This sets the alerts for the css CORS errors when you refresh
+      <script>
+      window.onload = function () {
+        try {
+          alert(document.styleSheets[0]); // works
+          alert(document.styleSheets[0].cssRules); // doesn't even print undefined
+        } catch (e) {
+          alert(e);
+        } // catch and alert the error
+      };
+    </script> -->
     <title>React App</title>
   </head>
   <body>
