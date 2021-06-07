@@ -21,7 +21,7 @@ for (var i = 0; i < 10; i++) {
 function App() {
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
-  const [rainbowBackground, setRainbowBackground] = useState(true);
+  const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
 
   const findNextId = () => {
