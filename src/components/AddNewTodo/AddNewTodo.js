@@ -29,7 +29,7 @@ function AddNewTodo(props) {
     <div>
       <div
         className={
-          "card textcenter mt-3 " + (props.formDisplay ? "" : "add-appointment")
+          (props.formDisplay ? "" : "add-appointment")
         }
       >
         <Button
