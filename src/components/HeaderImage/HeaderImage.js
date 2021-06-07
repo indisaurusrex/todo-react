@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoDate, Progress, AddNewTodo, Image } from "../index";
 
-function HeaderImage({ items, formDisplay, toggleForm, addTodo }) {
+function HeaderImage({ items, formDisplay, toggleForm, addTodo, treeToggle }) {
   let doneCount = 0;
   let donePercent = 0;
 
@@ -16,7 +16,7 @@ function HeaderImage({ items, formDisplay, toggleForm, addTodo }) {
 
   return (
     <div className="header-image">
-      <Image donePercent={donePercent} />
+      <Image donePercent={donePercent} treeToggle={treeToggle} />
       <div className="dark-shade">
         <AddNewTodo
           formDisplay={formDisplay}

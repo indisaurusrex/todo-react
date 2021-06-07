@@ -4,7 +4,7 @@ import { HeaderImage, TodoList } from "../index";
 import randomWords from "random-words";
 import Card from "@material-ui/core/Card";
 import rainbow from "../../images/rainbow.png";
-import Button from '@material-ui/core/Button';
+import tree from "../../images/pine.png";
 
 let todos = [];
 
@@ -22,6 +22,7 @@ function App() {
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
   const [rainbowBackground, setRainbowBackground] = useState(true);
+  const [treeToggle, setTreeToggle] = useState(false);
 
   const findNextId = () => {
     const newId = Math.max.apply(
@@ -53,6 +54,10 @@ function App() {
     setRainbowBackground(!rainbowBackground);
   };
 
+  const toggleTreeImage = () => {
+    setTreeToggle(!treeToggle);
+  }
+
   return (
     <div className={rainbowBackground ? "rainbow-background" : "white-background"}>
       <div className="App">
@@ -62,9 +67,11 @@ function App() {
             formDisplay={formDisplay}
             toggleForm={toggleForm}
             addTodo={addTodo}
+            treeToggle={treeToggle}
           />
           <input type="image" alt="rainbow background toggle" className="rainbow-button" src={rainbow} onClick={toggleRainbow} />
-          {/* <img src={rainbow} alt="tiny rainbow" className="rainbow-button" /> */}
+          <input type="image" alt="tree header image toggle" className="tree-button" src={tree} onClick={toggleTreeImage} />
+
           <h1>Do these things:</h1>
           <TodoList items={items} changeCheckbox={handleCheckboxChange} />
         </Card>
