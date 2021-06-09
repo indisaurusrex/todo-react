@@ -24,6 +24,22 @@ function App() {
   const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
 
+  const removeTodo = (itemId) => {
+    const remainingTodos = items.filter(todo => todo.id !== itemId);
+    // sortList(remainingTodos);
+    setItems([...remainingTodos]);
+  }
+
+  const sortList = (list) => {
+
+    list.sort((x, y) => {
+      return x.done - y.done || x.dueDate - y.dueDate;
+    });
+
+    return list;
+
+  }
+
   const findNextId = () => {
     const newId = Math.max.apply(
       Math,
@@ -35,13 +51,22 @@ function App() {
   };
 
   const handleCheckboxChange = (item) => {
-    let checkedItems = items;
-    checkedItems[item.id].done = !item.done;
-    setItems([...checkedItems]);
+    let changedCheckboxList = [];
+    items.forEach(todo => {
+      if (todo.id === item.id) {
+        item.done = !item.done;
+        changedCheckboxList.push(item);
+      } else {
+        changedCheckboxList.push(todo);
+      }
+    })
+    setItems([...changedCheckboxList]);
   };
+
   const toggleForm = () => {
     setFormDisplay(!formDisplay);
   };
+
   const addTodo = (item) => {
     let tempItems = items;
     item.id = findNextId();
@@ -73,7 +98,7 @@ function App() {
           <input type="image" alt="tree header image toggle" className="tree-button" src={tree} onClick={toggleTreeImage} />
 
           <h1>Do these things:</h1>
-          <TodoList items={items} changeCheckbox={handleCheckboxChange} />
+          <TodoList items={items} changeCheckbox={handleCheckboxChange} removeTodo={removeTodo} />
         </Card>
       </div>
     </div>

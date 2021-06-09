@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoElement } from "../index";
 
-function TodoList({ items, changeCheckbox }) {
+function TodoList({ items, changeCheckbox, removeTodo }) {
     let sortedList = [...items];
 
     sortedList.sort((x, y) => {
@@ -10,7 +10,7 @@ function TodoList({ items, changeCheckbox }) {
 
   let rows = sortedList.map((item) => {
     return (
-      <TodoElement key={item.id} item={item} changeCheckbox={changeCheckbox} />
+      <TodoElement key={item.id} item={item} changeCheckbox={changeCheckbox} removeTodo={removeTodo} />
     );
   });
 
