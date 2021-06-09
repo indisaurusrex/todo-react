@@ -16,9 +16,10 @@ function TodoElement({ item, changeCheckbox, removeTodo }) {
           id={item.id}
           type="checkbox"
           defaultChecked={item.done}
-          onChange={() => {changeCheckbox(item) }}
+          onChange={() => { changeCheckbox(item) }}
         />
         <button
+          className="remove-todo"
           onClick={() => {
             removeTodo(item.id);
           }}

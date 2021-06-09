@@ -26,18 +26,7 @@ function App() {
 
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter(todo => todo.id !== itemId);
-    // sortList(remainingTodos);
     setItems([...remainingTodos]);
-  }
-
-  const sortList = (list) => {
-
-    list.sort((x, y) => {
-      return x.done - y.done || x.dueDate - y.dueDate;
-    });
-
-    return list;
-
   }
 
   const findNextId = () => {
