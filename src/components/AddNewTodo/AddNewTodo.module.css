@@ -1,0 +1,14 @@
+.cardBody {
+  display: none;
+}
+.addAppointment {
+  display: none;
+}
+#addTodoCard {
+  position: fixed;
+  width: 200px;
+  height: 243px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  left: 600px;
+}
