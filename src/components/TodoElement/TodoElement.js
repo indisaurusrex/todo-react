@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoElement({ item, changeCheckbox }) {
+function TodoElement({ item, changeCheckbox, removeTodo }) {
   const theDate = new Date(item.dueDate);
   return (
     <tr>
@@ -16,8 +16,16 @@ function TodoElement({ item, changeCheckbox }) {
           id={item.id}
           type="checkbox"
           defaultChecked={item.done}
-          onChange={() => changeCheckbox(item)}
+          onChange={() => { changeCheckbox(item) }}
         />
+        <button
+          className="remove-todo"
+          onClick={() => {
+            removeTodo(item.id);
+          }}
+        >
+          x
+        </button>
       </th>
     </tr>
   );
