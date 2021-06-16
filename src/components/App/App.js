@@ -1,10 +1,11 @@
-import './App.css';
+/* eslint-disable import/no-cycle */
 import React, { useState } from 'react';
 import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
 import { HeaderImage, TodoList } from '../internal';
 import rainbow from '../../images/rainbow.png';
 import tree from '../../images/pine.png';
+import styles from './App.module.css';
 
 const todos = [];
 
@@ -30,10 +31,6 @@ export function App() {
   };
 
   const findNextId = () => {
-    // const newId = Math.max.apply(
-    //   Math,
-    //   items.map((o) => o.id),
-    // );
     const newId = Math.max(...items.map((o) => o.id));
     return newId + 1;
   };
@@ -73,12 +70,14 @@ export function App() {
     setTreeToggle(!treeToggle);
   };
 
+  const backgroundChoice = rainbowBackground ? styles.rainbowBackground : '';
+
   return (
     <div
-      className={rainbowBackground ? 'rainbow-background' : 'white-background'}
+      className={backgroundChoice}
     >
-      <div className="App">
-        <Card className="root">
+      <div className={styles.app}>
+        <Card className={styles.root}>
           <HeaderImage
             items={items}
             formDisplay={formDisplay}
@@ -89,14 +88,14 @@ export function App() {
           <input
             type="image"
             alt="rainbow background toggle"
-            className="rainbow-button"
+            className={styles.rainbowButton}
             src={rainbow}
             onClick={toggleRainbow}
           />
           <input
             type="image"
             alt="tree header image toggle"
-            className="tree-button"
+            className={styles.treeButton}
             src={tree}
             onClick={toggleTreeImage}
           />
@@ -112,5 +111,3 @@ export function App() {
     </div>
   );
 }
-
-// export default App;

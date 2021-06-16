@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TodoElement } from '../internal';
+import styles from './TodoList.module.css';
 
 export function TodoList({ items, changeCheckbox, removeTodo }) {
   const sortedList = [...items];
@@ -20,7 +21,7 @@ export function TodoList({ items, changeCheckbox, removeTodo }) {
 
   return (
     <div>
-      <table className="todo-table">
+      <table className={styles.todoTable}>
         <thead>
           <tr>
             <th>Title</th>

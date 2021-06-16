@@ -4,21 +4,21 @@ import styles from './TodoElement.module.css';
 
 export function TodoElement({ item, changeCheckbox, removeTodo }) {
   const theDate = new Date(item.dueDate);
-  const hours = (`0${theDate.getHours()}`).slice(-2);
-  const mins = (`0${theDate.getMinutes()}`).slice(-2);
+  const hours = `0${theDate.getHours()}`.slice(-2);
+  const mins = `0${theDate.getMinutes()}`.slice(-2);
 
   return (
     <tr>
-      <th>{item.title}</th>
-      <th>{item.location}</th>
-      <th>
+      <th className={styles.todoHeader}>{item.title}</th>
+      <th className={styles.todoHeader}>{item.location}</th>
+      <th className={styles.todoHeader}>
         {`${theDate.toLocaleDateString('en-US', {
           day: 'numeric',
         })} ${theDate.toLocaleDateString('en-US', {
           month: 'short',
         })} ${hours}:${mins}`}
       </th>
-      <th>
+      <th className={styles.todoHeader}>
         <input
           id={item.id}
           type="checkbox"
