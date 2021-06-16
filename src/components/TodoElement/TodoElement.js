@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './TodoElement.module.css';
 
 export function TodoElement({ item, changeCheckbox, removeTodo }) {
   const theDate = new Date(item.dueDate);
   const hours = (`0${theDate.getHours()}`).slice(-2);
   const mins = (`0${theDate.getMinutes()}`).slice(-2);
+
   return (
     <tr>
-      <th id="title-th">{item.title}</th>
+      <th>{item.title}</th>
       <th>{item.location}</th>
       <th>
         {`${theDate.toLocaleDateString('en-US', {
@@ -27,7 +29,7 @@ export function TodoElement({ item, changeCheckbox, removeTodo }) {
         />
         <button
           type="button"
-          className="remove-todo"
+          className={styles.removeTodo}
           onClick={() => {
             removeTodo(item.id);
           }}

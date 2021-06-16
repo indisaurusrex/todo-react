@@ -149,10 +149,3 @@ table {
   margin-top: 10px;
   margin-bottom: -15px;
 }
-
-.remove-todo {
-  border: none;
-  background-color: white;
-  font-family: 'Fredoka One', cursive;
-  vertical-align: top;
-}
