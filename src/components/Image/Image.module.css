@@ -1,0 +1,8 @@
+.backgroundImage {
+  border-radius: 5px;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  height: 273px;
+  object-fit: cover;
+}

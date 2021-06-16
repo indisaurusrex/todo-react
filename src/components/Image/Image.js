@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Image.module.css';
 import weather01 from '../../images/weather-01.jpeg';
 import weather02 from '../../images/weather-02.jpg';
 import weather03 from '../../images/weather-03.jpg';
@@ -44,7 +45,7 @@ export function Image({ donePercent, treeToggle }) {
     }
   }
 
-  return <img className="background-image" src={imgSrc} alt="weather" />;
+  return <img className={styles.backgroundImage} src={imgSrc} alt="weather" />;
 }
 
 Image.propTypes = {
