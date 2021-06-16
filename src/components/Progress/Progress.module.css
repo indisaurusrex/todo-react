@@ -1,0 +1,8 @@
+.progressInHeader {
+  z-index: 1;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 25px;
+  color: aliceblue;
+  font-weight: bolder;
+}

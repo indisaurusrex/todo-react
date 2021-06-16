@@ -50,24 +50,6 @@
   color: white;
 }
 
-.background-image {
-  border-radius: 5px;
-  width: 100%;
-  position: absolute;
-  left: 0%;
-  height: 273px;
-  object-fit: cover;
-}
-
-.progress-in-header {
-  z-index: 1;
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 25px;
-  color: aliceblue;
-  font-weight: bolder;
-}
-
 .todo-list {
   align-items: center;
   width: 60%;
