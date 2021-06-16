@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './HeaderImage.module.css';
 import {
   AddNewTodo,
   TodoDate,
@@ -29,9 +30,9 @@ export function HeaderImage({
   donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100);
 
   return (
-    <div className="header-image">
+    <div className={styles.headerImage}>
       <Image donePercent={donePercent} treeToggle={treeToggle} />
-      <div className="dark-shade">
+      <div className={styles.darkShade}>
         <AddNewTodo
           formDisplay={formDisplay}
           toggleForm={toggleForm}

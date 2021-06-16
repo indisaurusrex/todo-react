@@ -50,10 +50,6 @@
   color: white;
 }
 
-.header-image {
-  width: 480px;
-  height: 270px;
-}
 .background-image {
   border-radius: 5px;
   width: 100%;
@@ -63,29 +59,11 @@
   object-fit: cover;
 }
 
-.dark-shade {
-  position: absolute;
-  background-color: rgba(158, 99, 217, 0.4);
-  width: 30%;
-  height: 273px;
-  border-radius: 5px;
-  left: 70%;
-}
-
 .progress-in-header {
   z-index: 1;
   position: absolute;
   margin-top: 150px;
   margin-left: 25px;
-  color: aliceblue;
-  font-weight: bolder;
-}
-
-.date-in-header {
-  z-index: 1;
-  position: absolute;
-  margin-top: 90px;
-  margin-left: 20px;
   color: aliceblue;
   font-weight: bolder;
 }
