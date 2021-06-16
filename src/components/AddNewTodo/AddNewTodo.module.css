@@ -1,10 +1,9 @@
-.cardBody {
+.addAppointment .cardBody {
   display: none;
 }
-.addAppointment {
-  display: none;
-}
-#addTodoCard {
+
+
+.addTodoCard {
   position: fixed;
   width: 200px;
   height: 243px;

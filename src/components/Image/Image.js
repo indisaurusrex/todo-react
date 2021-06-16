@@ -1,18 +1,19 @@
-import React from "react";
-import weather01 from "../../images/weather-01.jpeg";
-import weather02 from "../../images/weather-02.jpg";
-import weather03 from "../../images/weather-03.jpg";
-import weather04 from "../../images/weather-04.jpg";
-import weather05 from "../../images/weather-05.jpg";
-import foreststorm from "../../images/lightning.jpg";
-import forestrain from "../../images/rain.jpg";
-import forestfog from "../../images/fog.jpg";
-import forestrainbow from "../../images/rainbowforest.jpg";
-import forestpartialsun from "../../images/sun-through-trees.jpg";
-import forestsun from "../../images/mountain.jpg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import weather01 from '../../images/weather-01.jpeg';
+import weather02 from '../../images/weather-02.jpg';
+import weather03 from '../../images/weather-03.jpg';
+import weather04 from '../../images/weather-04.jpg';
+import weather05 from '../../images/weather-05.jpg';
+import foreststorm from '../../images/lightning.jpg';
+import forestrain from '../../images/rain.jpg';
+import forestfog from '../../images/fog.jpg';
+import forestrainbow from '../../images/rainbowforest.jpg';
+import forestpartialsun from '../../images/sun-through-trees.jpg';
+import forestsun from '../../images/mountain.jpg';
 
-function Image({ donePercent, treeToggle }) {
-  let imgSrc = "";
+export function Image({ donePercent, treeToggle }) {
+  let imgSrc = '';
 
   if (!treeToggle) {
     if (donePercent < 20) {
@@ -26,7 +27,7 @@ function Image({ donePercent, treeToggle }) {
     } else {
       imgSrc = weather05;
     }
-  } 
+  }
   if (treeToggle) {
     if (donePercent < 15) {
       imgSrc = foreststorm;
@@ -42,9 +43,11 @@ function Image({ donePercent, treeToggle }) {
       imgSrc = forestsun;
     }
   }
-  
 
   return <img className="background-image" src={imgSrc} alt="weather" />;
 }
 
-export default Image;
+Image.propTypes = {
+  donePercent: PropTypes.number.isRequired,
+  treeToggle: PropTypes.bool.isRequired,
+};

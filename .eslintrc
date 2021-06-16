@@ -1,81 +1,68 @@
 {
-    "extends": ["airbnb", "airbnb/hooks", "prettier"],
-    "plugins": ["jest", "react-hooks", "prettier"],
-    "root": true,
-    "env": {
-      "es6": true,
-      "browser": true
+  "extends": ["airbnb", "airbnb/hooks"],
+  "plugins": ["jest", "react-hooks"],
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": ["**/__mocks__/**/*.js", "**/*.test.{js,jsx}"],
+      "env": {
+        "jest": true
+      }
     },
-    "overrides": [
+    {
+      "files": ["**/*.spec.js"]
+    }
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
+    "arrow-body-style": [2, "as-needed"],
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline": "off",
+    "radix": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
       {
-        "files": ["**/__mocks__/**/*.js", "**/*.test.{js,jsx}"],
-        "env": {
-          "jest": true
-        }
-      },
-      {
-        "files": ["**/*.spec.js"],
-        "env": {
-          "cypress/globals": true
+        "required": {
+          "some": ["nesting", "id"]
         }
       }
     ],
-    "rules": {
-      "arrow-body-style": [2, "as-needed"],
-      "import/no-named-as-default": 0,
-      "import/prefer-default-export": "off",
-      "react/jsx-props-no-spreading": "off",
-      "react/jsx-curly-newline": "off",
-      "radix": "off",
-      "jsx-a11y/label-has-associated-control": [
-        "error",
-        {
-          "required": {
-            "some": ["nesting", "id"]
-          }
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
         }
-      ],
-      "jsx-a11y/label-has-for": [
-        "error",
-        {
-          "required": {
-            "some": ["nesting", "id"]
-          }
-        }
-      ],
-      "react/require-default-props": [
-        "warn",
-        {
-          "forbidDefaultForRequired": true
-        }
-      ],
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "off",
-      "react/forbid-prop-types": [
-        "warn",
-        {
-          "forbid": ["any", "array", "object"],
-          "checkContextTypes": true,
-          "checkChildContextTypes": true
-        }
-      ],
-      "react/no-array-index-key": "warn",
-      "react/prop-types": "warn",
-      "prettier/prettier": [
-        "error",
-        {
-          "jsxSingleQuote": false,
-          "singleQuote": true,
-          "trailingComma": "all",
-          "arrowParens": "always",
-          "htmlWhitespaceSensitivity": "ignore",
-          "endOfLine": "auto"
-        }
-      ],
-      "react/jsx-wrap-multilines": [
-        "error",
-        { "declaration": false, "assignment": false }
-      ]
-    },
-    "ignorePatterns": ["/public"]
-  }
+      }
+    ],
+    "react/require-default-props": [
+      "warn",
+      {
+        "forbidDefaultForRequired": true
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/forbid-prop-types": [
+      "warn",
+      {
+        "forbid": ["any", "array", "object"],
+        "checkContextTypes": true,
+        "checkChildContextTypes": true
+      }
+    ],
+    "react/no-array-index-key": "warn",
+    "react/prop-types": "warn",
+    "react/jsx-wrap-multilines": [
+      "error",
+      { "declaration": false, "assignment": false }
+    ]
+  },
+  "ignorePatterns": ["/public"]
+}
