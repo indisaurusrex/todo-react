@@ -1,0 +1,8 @@
+.dateInHeader {
+  z-index: 1;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 20px;
+  color: aliceblue;
+  font-weight: bolder;
+}

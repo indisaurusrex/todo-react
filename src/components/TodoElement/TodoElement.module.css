@@ -1,0 +1,13 @@
+.removeTodo {
+  border: none;
+  background-color: white;
+  font-family: 'Fredoka One', cursive;
+  vertical-align: top;
+}
+
+.todoHeader {
+  font-weight: lighter;
+  text-align: left;
+  padding-right: 10px;
+  padding-top: 10px;
+}

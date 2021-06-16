@@ -1,22 +1,27 @@
-import React from "react";
-import { TodoElement } from "../index";
+/* eslint-disable import/no-cycle */
 
-function TodoList({ items, changeCheckbox, removeTodo }) {
-    let sortedList = [...items];
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TodoElement } from '../internal';
+import styles from './TodoList.module.css';
 
-    sortedList.sort((x, y) => {
-      return x.done - y.done || x.dueDate - y.dueDate;
-    });
+export function TodoList({ items, changeCheckbox, removeTodo }) {
+  const sortedList = [...items];
 
-  let rows = sortedList.map((item) => {
-    return (
-      <TodoElement key={item.id} item={item} changeCheckbox={changeCheckbox} removeTodo={removeTodo} />
-    );
-  });
+  sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
+
+  const rows = sortedList.map((item) => (
+    <TodoElement
+      key={item.id}
+      item={item}
+      changeCheckbox={changeCheckbox}
+      removeTodo={removeTodo}
+    />
+  ));
 
   return (
     <div>
-      <table className="todo-table">
+      <table className={styles.todoTable}>
         <thead>
           <tr>
             <th>Title</th>
@@ -31,4 +36,8 @@ function TodoList({ items, changeCheckbox, removeTodo }) {
   );
 }
 
-export default TodoList;
+TodoList.propTypes = {
+  items: PropTypes.oneOfType([PropTypes.array]).isRequired,
+  changeCheckbox: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+};

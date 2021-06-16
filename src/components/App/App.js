@@ -1,14 +1,15 @@
-import "./App.css";
-import React, { useState } from "react";
-import { HeaderImage, TodoList } from "../index";
-import randomWords from "random-words";
-import Card from "@material-ui/core/Card";
-import rainbow from "../../images/rainbow.png";
-import tree from "../../images/pine.png";
+/* eslint-disable import/no-cycle */
+import React, { useState } from 'react';
+import randomWords from 'random-words';
+import Card from '@material-ui/core/Card';
+import { HeaderImage, TodoList } from '../internal';
+import rainbow from '../../images/rainbow.png';
+import tree from '../../images/pine.png';
+import styles from './App.module.css';
 
-let todos = [];
+const todos = [];
 
-for (var i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i += 1) {
   todos.push({
     id: i,
     title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
@@ -18,37 +19,33 @@ for (var i = 0; i < 10; i++) {
   });
 }
 
-function App() {
+export function App() {
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
   const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
 
   const removeTodo = (itemId) => {
-    const remainingTodos = items.filter(todo => todo.id !== itemId);
+    const remainingTodos = items.filter((todo) => todo.id !== itemId);
     setItems([...remainingTodos]);
-  }
+  };
 
   const findNextId = () => {
-    const newId = Math.max.apply(
-      Math,
-      items.map(function (o) {
-        return o.id;
-      })
-    );
+    const newId = Math.max(...items.map((o) => o.id));
     return newId + 1;
   };
 
   const handleCheckboxChange = (item) => {
-    let changedCheckboxList = [];
-    items.forEach(todo => {
-      if (todo.id === item.id) {
-        item.done = !item.done;
-        changedCheckboxList.push(item);
+    const changedCheckboxList = [];
+    const changedItem = item;
+    items.forEach((todo) => {
+      if (todo.id === changedItem.id) {
+        changedItem.done = !item.done;
+        changedCheckboxList.push(changedItem);
       } else {
         changedCheckboxList.push(todo);
       }
-    })
+    });
     setItems([...changedCheckboxList]);
   };
 
@@ -57,10 +54,11 @@ function App() {
   };
 
   const addTodo = (item) => {
-    let tempItems = items;
-    item.id = findNextId();
-    item.done = false;
-    tempItems.push(item);
+    const tempItems = items;
+    const tempItem = item;
+    tempItem.id = findNextId();
+    tempItem.done = false;
+    tempItems.push(tempItem);
     setItems([...tempItems]);
   };
 
@@ -70,12 +68,16 @@ function App() {
 
   const toggleTreeImage = () => {
     setTreeToggle(!treeToggle);
-  }
+  };
+
+  const backgroundChoice = rainbowBackground ? styles.rainbowBackground : '';
 
   return (
-    <div className={rainbowBackground ? "rainbow-background" : "white-background"}>
-      <div className="App">
-        <Card className="root">
+    <div
+      className={backgroundChoice}
+    >
+      <div className={styles.app}>
+        <Card className={styles.root}>
           <HeaderImage
             items={items}
             formDisplay={formDisplay}
@@ -83,15 +85,29 @@ function App() {
             addTodo={addTodo}
             treeToggle={treeToggle}
           />
-          <input type="image" alt="rainbow background toggle" className="rainbow-button" src={rainbow} onClick={toggleRainbow} />
-          <input type="image" alt="tree header image toggle" className="tree-button" src={tree} onClick={toggleTreeImage} />
+          <input
+            type="image"
+            alt="rainbow background toggle"
+            className={styles.rainbowButton}
+            src={rainbow}
+            onClick={toggleRainbow}
+          />
+          <input
+            type="image"
+            alt="tree header image toggle"
+            className={styles.treeButton}
+            src={tree}
+            onClick={toggleTreeImage}
+          />
 
           <h1>Do these things:</h1>
-          <TodoList items={items} changeCheckbox={handleCheckboxChange} removeTodo={removeTodo} />
+          <TodoList
+            items={items}
+            changeCheckbox={handleCheckboxChange}
+            removeTodo={removeTodo}
+          />
         </Card>
       </div>
     </div>
   );
 }
-
-export default App;

@@ -1,13 +1,24 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import styles from './Progress.module.css';
 
-function Progress(props) {
+export function Progress({ donePercent }) {
   return (
-    <div className="progress-in-header">
-      <CircularProgress variant="determinate" value={props.donePercent} color="inherit" />
-      <p role="header-progress">{props.donePercent}% done</p>
+    <div className={styles.progressInHeader}>
+      <CircularProgress
+        variant="determinate"
+        value={donePercent}
+        color="inherit"
+      />
+      <p>
+        {donePercent}
+        % done
+      </p>
     </div>
   );
 }
 
-export default Progress;
+Progress.propTypes = {
+  donePercent: PropTypes.number.isRequired,
+};
