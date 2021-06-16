@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 export function TodoElement({ item, changeCheckbox, removeTodo }) {
   const theDate = new Date(item.dueDate);
+  const hours = (`0${theDate.getHours()}`).slice(-2);
+  const mins = (`0${theDate.getMinutes()}`).slice(-2);
   return (
     <tr>
       <th id="title-th">{item.title}</th>
@@ -12,7 +14,7 @@ export function TodoElement({ item, changeCheckbox, removeTodo }) {
           day: 'numeric',
         })} ${theDate.toLocaleDateString('en-US', {
           month: 'short',
-        })} ${theDate.getHours()}:${theDate.getMinutes()}`}
+        })} ${hours}:${mins}`}
       </th>
       <th>
         <input

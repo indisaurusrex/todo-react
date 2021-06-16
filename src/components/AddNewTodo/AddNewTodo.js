@@ -30,9 +30,6 @@ export function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
   return (
     <div>
       <div
-        // className={
-        //   (props.formDisplay ? "" : "add-appointment")
-        // }
         className={`${formDisplayer}`}
       >
         <Button size="small" startIcon={<AddCircleIcon />} onClick={toggleForm}>
