@@ -1,11 +1,12 @@
 /* eslint-disable import/no-cycle */
+/* eslint-disable */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TodoElement } from '../internal';
 import styles from './TodoList.module.css';
 
-export function TodoList({ items, changeCheckbox, removeTodo }) {
+export function TodoList({ items, changeCheckbox, removeTodo, updateTodo }) {
   const sortedList = [...items];
 
   sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
@@ -16,6 +17,7 @@ export function TodoList({ items, changeCheckbox, removeTodo }) {
       item={item}
       changeCheckbox={changeCheckbox}
       removeTodo={removeTodo}
+      updateTodo={updateTodo}
     />
   ));
 
