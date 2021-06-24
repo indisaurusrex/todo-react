@@ -14,6 +14,7 @@ export default function TodoList({ items, changeCheckbox, removeTodo }) {
       item={item}
       changeCheckbox={changeCheckbox}
       removeTodo={removeTodo}
+      updateTodo={updateTodo}
     />
   ));
 

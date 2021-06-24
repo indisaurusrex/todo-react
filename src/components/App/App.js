@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+/* eslint-disable */
 import React, { useState } from 'react';
 import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
@@ -30,6 +31,17 @@ export default function App() {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
     setItems([...remainingTodos]);
   };
+
+  const updateTodo = (id, newTitle) => {
+    let updatedTodos = items;
+    updatedTodos.map(todo => {
+      if (id === todo.id) {
+        todo.title = newTitle;
+      }
+      return todo;
+    });
+    setItems([...updatedTodos]);
+  }
 
   const findNextId = () => {
     const newId = Math.max(...items.map((o) => o.id));
@@ -106,6 +118,7 @@ export default function App() {
             items={items}
             changeCheckbox={handleCheckboxChange}
             removeTodo={removeTodo}
+            updateTodo={updateTodo}
           />
         </Card>
       </div>
