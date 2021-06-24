@@ -1,11 +1,9 @@
-/* eslint-disable import/no-cycle */
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TodoElement } from '../internal';
+import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
 
-export function TodoList({ items, changeCheckbox, removeTodo }) {
+export default function TodoList({ items, changeCheckbox, removeTodo }) {
   const sortedList = [...items];
 
   sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);

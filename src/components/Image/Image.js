@@ -13,7 +13,7 @@ import forestrainbow from '../../images/rainbowforest.jpg';
 import forestpartialsun from '../../images/sun-through-trees.jpg';
 import forestsun from '../../images/mountain.jpg';
 
-export function Image({ donePercent, treeToggle }) {
+export default function Image({ donePercent, treeToggle }) {
   let imgSrc = '';
 
   if (!treeToggle) {

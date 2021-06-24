@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TodoElement.module.css';
 
-export function TodoElement({ item, changeCheckbox, removeTodo }) {
+export default function TodoElement({ item, changeCheckbox, removeTodo }) {
   const theDate = new Date(item.dueDate);
   const hours = `0${theDate.getHours()}`.slice(-2);
   const mins = `0${theDate.getMinutes()}`.slice(-2);

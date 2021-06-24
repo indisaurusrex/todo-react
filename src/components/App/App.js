@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
-import { HeaderImage, TodoList } from '../internal';
+import HeaderImage from '../HeaderImage/HeaderImage';
+import TodoList from '../TodoList/TodoList';
 import rainbow from '../../images/rainbow.png';
 import tree from '../../images/pine.png';
 import styles from './App.module.css';
@@ -19,7 +20,7 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
-export function App() {
+export default function App() {
   const [items, setItems] = useState(todos);
   const [formDisplay, setFormDisplay] = useState(false);
   const [rainbowBackground, setRainbowBackground] = useState(false);

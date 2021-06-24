@@ -1,12 +1,6 @@
 import React from 'react';
-import { HeaderImage } from '../index';
-import {
-  render,
-  fireEvent,
-  screen,
-  getByText,
-  waitFor,
-} from '@testing-library/react';
+import { HeaderImage } from './HeaderImage';
+import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'regenerator-runtime/runtime';
 
@@ -59,4 +53,14 @@ it('knows how much progress has been made', () => {
 //   fireEvent.click(screen.getByText('Add an item'))
 //   await waitFor(() => fireEvent.click(screen.getByText('Go!')))
 //   expect(screen.getByRole('header-progress')).toHaveTextContent(50 + '%')
+// });
+
+// describe('when the donePercent is 100', () => {
+//   const donePercent = 100;
+//   const treeToggle = false;
+//   it('displays a beach', () => {
+//     render(<Image donePercent={donePercent} treeToggle={treeToggle} />);
+//     const displayedImage = document.querySelector('img') as HTMLImageElement;
+//     expect(displayedImage.src).toContain('weather-05');
+//   });
 // });

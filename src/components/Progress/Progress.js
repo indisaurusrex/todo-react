@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from './Progress.module.css';
 
-export function Progress({ donePercent }) {
+export default function Progress({ donePercent }) {
   return (
     <div className={styles.progressInHeader}>
       <CircularProgress

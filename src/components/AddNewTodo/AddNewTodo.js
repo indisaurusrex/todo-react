@@ -5,7 +5,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { useForm } from 'react-hook-form';
 import styles from './AddNewTodo.module.css';
 
-export function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
+export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
   const {
     register,
     handleSubmit,

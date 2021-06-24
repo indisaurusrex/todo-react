@@ -1,16 +1,12 @@
-/* eslint-disable import/no-cycle */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './HeaderImage.module.css';
-import {
-  AddNewTodo,
-  TodoDate,
-  Progress,
-  Image,
-} from '../internal';
+import AddNewTodo from '../AddNewTodo/AddNewTodo';
+import TodoDate from '../Date/Date';
+import Progress from '../Progress/Progress';
+import Image from '../Image/Image';
 
-export function HeaderImage({
+export default function HeaderImage({
   items,
   formDisplay,
   toggleForm,
