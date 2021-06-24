@@ -1,9 +1,13 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TodoElement.module.css';
 
-export default function TodoElement({ item, changeCheckbox, removeTodo }) {
+export default function TodoElement({
+  item,
+  changeCheckbox,
+  removeTodo,
+  updateTodo,
+}) {
   const theDate = new Date(item.dueDate);
   const hours = `0${theDate.getHours()}`.slice(-2);
   const mins = `0${theDate.getMinutes()}`.slice(-2);
@@ -27,10 +31,12 @@ export default function TodoElement({ item, changeCheckbox, removeTodo }) {
     <tr>
       {/* <th className={styles.todo}>{item.title}</th> */}
       {!edit ? (
-        <>
-          <th className={styles.todo}>{item.title}</th>
-          <button onClick={handleEdit}>edit</button>
-        </>
+        <th>
+          <div className={styles.todo}>
+            {`${item.title} `}
+            <button type="submit" onClick={handleEdit}>edit</button>
+          </div>
+        </th>
       ) : (
         <>
           <input
@@ -39,7 +45,7 @@ export default function TodoElement({ item, changeCheckbox, removeTodo }) {
             name="todo"
             onChange={handleEditChange}
           />
-          <button onClick={handleEdit}>cancel</button>
+          <button type="submit" onClick={handleEdit}>cancel</button>
           <button type="submit" onClick={() => handleEditSubmit(item.id)}>
             save
           </button>
@@ -80,4 +86,5 @@ TodoElement.propTypes = {
   item: PropTypes.oneOfType([PropTypes.object]).isRequired,
   changeCheckbox: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
 };

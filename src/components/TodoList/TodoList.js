@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
 
-export default function TodoList({ items, changeCheckbox, removeTodo }) {
+export default function TodoList({
+  items,
+  changeCheckbox,
+  removeTodo,
+  updateTodo,
+}) {
   const sortedList = [...items];
 
   sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
@@ -39,4 +44,5 @@ TodoList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.array]).isRequired,
   changeCheckbox: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
 };

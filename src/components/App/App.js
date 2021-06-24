@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable */
 import React, { useState } from 'react';
 import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
@@ -33,15 +31,16 @@ export default function App() {
   };
 
   const updateTodo = (id, newTitle) => {
-    let updatedTodos = items;
-    updatedTodos.map(todo => {
+    const updatedTodos = items;
+    updatedTodos.map((todo) => {
+      const newTodo = todo;
       if (id === todo.id) {
-        todo.title = newTitle;
+        newTodo.title = newTitle;
       }
-      return todo;
+      return newTodo;
     });
     setItems([...updatedTodos]);
-  }
+  };
 
   const findNextId = () => {
     const newId = Math.max(...items.map((o) => o.id));
