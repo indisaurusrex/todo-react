@@ -50,6 +50,8 @@ If there are lint errors the page may not load until they are resolved, and you 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+To test only one file, run `yarn test filename`
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
