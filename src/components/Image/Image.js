@@ -16,33 +16,41 @@ import forestsun from '../../images/mountain.jpg';
 export default function Image({ donePercent, treeToggle }) {
   let imgSrc = '';
 
-  if (!treeToggle) {
-    if (donePercent < 20) {
+  switch (!treeToggle) {
+    case donePercent < 20:
       imgSrc = weather01;
-    } else if (donePercent === 20 || donePercent < 40) {
+      break;
+    case donePercent === 20 || donePercent < 40:
       imgSrc = weather02;
-    } else if (donePercent === 40 || donePercent < 70) {
+      break;
+    case donePercent === 40 || donePercent < 70:
       imgSrc = weather03;
-    } else if (donePercent === 70 || donePercent < 95) {
+      break;
+    case donePercent === 70 || donePercent < 95:
       imgSrc = weather04;
-    } else {
+      break;
+    default:
       imgSrc = weather05;
-    }
   }
-  if (treeToggle) {
-    if (donePercent < 15) {
+
+  switch (treeToggle) {
+    case donePercent < 15:
       imgSrc = foreststorm;
-    } else if (donePercent === 15 || donePercent < 30) {
+      break;
+    case donePercent === 15 || donePercent < 30:
       imgSrc = forestfog;
-    } else if (donePercent === 30 || donePercent < 50) {
+      break;
+    case donePercent === 30 || donePercent < 50:
       imgSrc = forestrain;
-    } else if (donePercent === 50 || donePercent < 75) {
+      break;
+    case donePercent === 50 || donePercent < 75:
       imgSrc = forestrainbow;
-    } else if (donePercent === 75 || donePercent < 95) {
+      break;
+    case donePercent === 75 || donePercent < 95:
       imgSrc = forestpartialsun;
-    } else {
+      break;
+    default:
       imgSrc = forestsun;
-    }
   }
 
   return <img className={styles.backgroundImage} src={imgSrc} alt="weather" />;
