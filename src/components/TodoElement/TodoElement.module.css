@@ -1,6 +1,7 @@
 .removeTodo {
   border: none;
   background-color: white;
+  color: #cc3333;
   font-family: 'Fredoka One', cursive;
   vertical-align: top;
 }
