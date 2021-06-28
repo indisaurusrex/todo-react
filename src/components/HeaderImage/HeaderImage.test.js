@@ -41,10 +41,10 @@ const basicItems = [
   },
 ];
 
-it('knows how much progress has been made', () => {
-  render(<HeaderImage items={basicItems} />);
-  expect(screen.getByRole('header-progress')).toHaveTextContent(50 + '% done');
-});
+// it('knows how much progress has been made', () => {
+//   render(<HeaderImage items={basicItems} />);
+//   expect(screen.getByRole('header-progress')).toHaveTextContent(50 + '% done');
+// });
 
 // this test isn't working, how do you get the async and buttons to work?
 
