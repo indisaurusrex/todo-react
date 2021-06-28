@@ -4,19 +4,19 @@ This project was created as part of Turing Grow upskilling in React. This repo i
 
 ## Features for initial app
 
-1. Create an item
-2. See all items
-3. Delete an item
-4. Edit an item
-5. Complete an item
+1. [x] Create an item
+2. - [x] See all items
+3. - [x] Delete an item
+4. - [x] Edit an item
+5. - [x] Complete an item
 6. Edit order (drag items around? Sort by function?)
 
 ## Look and feel plans
-- Rainbow background
-- Card over the top (mobile first look)
-- Clean look
+- [x] Rainbow background 
+- [x] Card over the top (mobile first look)
+- [x] Clean look
 - Clouds turning into sunshine animation when you do something?
-    - Change card header image of weather according to your completion of todo in %
+    - [x] Change card header image of weather according to your completion of todo in %
 
 
 
