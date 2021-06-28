@@ -14,7 +14,6 @@ export default function HeaderImage({
   treeToggle,
 }) {
   let doneCount = 0;
-  let donePercent = 0;
 
   items.map((item) => {
     if (item.done) {
@@ -23,7 +22,7 @@ export default function HeaderImage({
     return doneCount;
   });
 
-  donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100);
+  const donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100) || 0;
 
   return (
     <div className={styles.headerImage}>
