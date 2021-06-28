@@ -4,21 +4,29 @@ This project was created as part of Turing Grow upskilling in React. This repo i
 
 ## Features for initial app
 
-1. [x] Create an item
+1. - [x] Create an item
 2. - [x] See all items
 3. - [x] Delete an item
 4. - [x] Edit an item
 5. - [x] Complete an item
-6. Edit order (drag items around? Sort by function?)
+6. - [] Edit order (drag items around? Sort by function?)
 
 ## Look and feel plans
 - [x] Rainbow background 
 - [x] Card over the top (mobile first look)
 - [x] Clean look
-- Clouds turning into sunshine animation when you do something?
+- [] Clouds turning into sunshine animation when you do something?
     - [x] Change card header image of weather according to your completion of todo in %
 
+## Set up
+Clone this repo with `git clone git@github.com:indisaurusrex/todo-react.git`
+Install dependencies using `yarn install`
+Run the app using `yarn start`
 
+## About the project
+Originally written in React class components, everything has been converted to use React Hooks as these are seen as best practice right now.
+CSS has been converted into CSS Modules as this is currently the preferred option and means components can be more easily reused. 
+Testing was initially not done using TDD. Once testing is implemented for existing features (as of 28th June '21), all new features should be written using TDD.
 
 ## Future opportunities
 
@@ -35,6 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+If there are lint errors the page may not load until they are resolved, and you may see the lint errors in the browser instead.
 
 ### `yarn test`
 
@@ -51,18 +60,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
