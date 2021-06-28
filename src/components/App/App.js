@@ -27,7 +27,7 @@ export default function App() {
 
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
-    setItems([...remainingTodos]);
+    setItems(remainingTodos);
   };
 
   const updateTodo = (id, newTitle) => {
@@ -39,7 +39,7 @@ export default function App() {
       }
       return newTodo;
     });
-    setItems([...updatedTodos]);
+    setItems(updatedTodos);
   };
 
   const findNextId = () => {
@@ -85,9 +85,7 @@ export default function App() {
   const backgroundChoice = rainbowBackground ? styles.rainbowBackground : '';
 
   return (
-    <div
-      className={backgroundChoice}
-    >
+    <div className={backgroundChoice}>
       <div className={styles.app}>
         <Card className={styles.root}>
           <HeaderImage
