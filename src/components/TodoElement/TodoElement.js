@@ -34,22 +34,28 @@ export default function TodoElement({
         <th>
           <div className={styles.todo}>
             {`${item.title} `}
-            <button type="submit" onClick={handleEdit}>edit</button>
+            <button type="submit" onClick={handleEdit}>
+              Edit
+            </button>
           </div>
         </th>
       ) : (
-        <>
+        <td>
           <input
             type="text"
             value={todo}
             name="todo"
             onChange={handleEditChange}
           />
-          <button type="submit" onClick={handleEdit}>cancel</button>
-          <button type="submit" onClick={() => handleEditSubmit(item.id)}>
-            save
+          &nbsp;
+          <button type="submit" onClick={handleEdit}>
+            Cancel
           </button>
-        </>
+          &nbsp;
+          <button type="submit" onClick={() => handleEditSubmit(item.id)}>
+            Save
+          </button>
+        </td>
       )}
       <th className={styles.todo}>{item.location}</th>
       <th className={styles.todo}>
