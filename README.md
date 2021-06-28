@@ -9,13 +9,13 @@ This project was created as part of Turing Grow upskilling in React. This repo i
 3. - [x] Delete an item
 4. - [x] Edit an item
 5. - [x] Complete an item
-6. - [] Edit order (drag items around? Sort by function?)
+6. - [ ] Edit order (drag items around? Sort by function?)
 
 ## Look and feel plans
 - [x] Rainbow background 
 - [x] Card over the top (mobile first look)
 - [x] Clean look
-- [] Clouds turning into sunshine animation when you do something?
+- [ ] Clouds turning into sunshine animation when you do something?
     - [x] Change card header image of weather according to your completion of todo in %
 
 ## Set up
