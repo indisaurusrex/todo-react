@@ -6,6 +6,6 @@ import '@testing-library/jest-dom';
 
 test('loads the items from the list', async () => {
   render(<App />);
-  const headerText = screen.getByText(/ToDo List App/);
+  const headerText = screen.getByText(/Do these things/);
   expect(headerText).toBeInTheDocument();
 });
