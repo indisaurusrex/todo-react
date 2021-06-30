@@ -32,7 +32,7 @@ export default function TodoElement({
       {/* <th className={styles.todo}>{item.title}</th> */}
       {!edit ? (
         <th>
-          <div className={styles.todo}>
+          <div className={styles.todo} data-testid="todoTitle">
             {`${item.title} `}
             <button type="submit" onClick={handleEdit}>
               Edit
