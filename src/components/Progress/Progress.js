@@ -11,7 +11,7 @@ export default function Progress({ donePercent }) {
         value={donePercent}
         color="inherit"
       />
-      <p>
+      <p data-testid="Progress">
         {donePercent}
         % done
       </p>

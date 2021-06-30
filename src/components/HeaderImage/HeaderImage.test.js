@@ -1,6 +1,6 @@
 import React from 'react';
-import { HeaderImage } from './HeaderImage';
 import { render, fireEvent, screen } from '@testing-library/react';
+import HeaderImage from './HeaderImage';
 import '@testing-library/jest-dom/extend-expect';
 import 'regenerator-runtime/runtime';
 
@@ -11,56 +11,91 @@ const basicItems = [
     id: 1,
     title: 'thing1',
     location: 'there',
-    dueDate: '31-05-2021',
-    dueTime: '1400',
+    dueDate: '2021-05-31',
+    dueTime: '14:00',
     done: true,
   },
   {
     id: 2,
     title: 'thing2',
     location: 'here',
-    dueDate: '31-05-2021',
-    dueTime: '1300',
+    dueDate: '2021-05-31',
+    dueTime: '13:00',
     done: true,
   },
   {
     id: 3,
     title: 'thing3',
     location: 'there',
-    dueDate: '31-05-2021',
-    dueTime: '0900',
+    dueDate: '2021-05-31',
+    dueTime: '09:00',
     done: false,
   },
   {
     id: 4,
     title: 'thing4',
     location: 'here',
-    dueDate: '31-05-2021',
-    dueTime: '1000',
+    dueDate: '2021-05-31',
+    dueTime: '10:00',
     done: false,
   },
 ];
 
-it('knows how much progress has been made', () => {
-  render(<HeaderImage items={basicItems} />);
-  expect(screen.getByRole('header-progress')).toHaveTextContent(50 + '% done');
+describe('HeaderImage component', () => {
+  const toggleForm = jest.fn();
+  const addTodo = jest.fn();
+
+  it('renders progress to 50% on initiation', () => {
+    render(<HeaderImage
+      items={basicItems}
+      formDisplay={false}
+      toggleForm={toggleForm}
+      addTodo={addTodo}
+      treeToggle={false}
+    />);
+
+    expect(screen.getByTestId('Progress')).toHaveTextContent('50% done');
+  });
+
+  it('updates progress if another item is added', () => {
+    const anotherTodo = {
+      id: 5,
+      title: 'Walk dog',
+      location: 'Hyde Park',
+      dueDate: '2021-06-30',
+      dueTime: '10:00',
+      done: false,
+    };
+
+    basicItems.push(anotherTodo);
+
+    render(<HeaderImage
+      items={basicItems}
+      formDisplay={false}
+      toggleForm={toggleForm}
+      addTodo={addTodo}
+      treeToggle={false}
+    />);
+
+    expect(screen.getByTestId('Progress')).toHaveTextContent('40% done');
+  });
+
+  it('updates progress to 100% if all items are done', () => {
+    const updatedItems = basicItems.map((item) => {
+      if (item.done === false) {
+        return { ...item, done: true };
+      }
+      return item;
+    });
+
+    render(<HeaderImage
+      items={updatedItems}
+      formDisplay={false}
+      toggleForm={toggleForm}
+      addTodo={addTodo}
+      treeToggle={false}
+    />);
+
+    expect(screen.getByTestId('Progress')).toHaveTextContent('100% done');
+  });
 });
-
-// this test isn't working, how do you get the async and buttons to work?
-
-// it("recalculates the progress when a new todo is added", async () => {
-//   render(<HeaderImage items={basicItems} />)
-//   fireEvent.click(screen.getByText('Add an item'))
-//   await waitFor(() => fireEvent.click(screen.getByText('Go!')))
-//   expect(screen.getByRole('header-progress')).toHaveTextContent(50 + '%')
-// });
-
-// describe('when the donePercent is 100', () => {
-//   const donePercent = 100;
-//   const treeToggle = false;
-//   it('displays a beach', () => {
-//     render(<Image donePercent={donePercent} treeToggle={treeToggle} />);
-//     const displayedImage = document.querySelector('img') as HTMLImageElement;
-//     expect(displayedImage.src).toContain('weather-05');
-//   });
-// });
