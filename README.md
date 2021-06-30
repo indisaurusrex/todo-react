@@ -66,15 +66,11 @@ If there are lint errors the page may not load until they are resolved, and you 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<<<<<<< HEAD
-To test only one file, run `yarn test filename`
-=======
 To test only one file, run: 
 
 ```bash
 yarn test name_of_file
 ```
->>>>>>> b61a3febd06078ed05bb4e720672a0859d61de50
 
 ### `yarn build`
 
