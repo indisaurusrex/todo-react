@@ -19,11 +19,27 @@ This project was created as part of Turing Grow upskilling in React. This repo i
     - [x] Change card header image of weather according to your completion of todo in %
 
 ## Set up
-Clone this repo with `git clone git@github.com:indisaurusrex/todo-react.git`
-Install dependencies using `yarn install`
-Run the app using `yarn start`
+
+Clone this repo with:
+
+```bash
+git clone git@github.com:indisaurusrex/todo-react.git
+```
+
+Install dependencies using:
+
+```bash
+yarn install
+```
+
+Run the app using: 
+
+```bash
+yarn start
+```
 
 ## About the project
+
 Originally written in React class components, everything has been converted to use React Hooks as these are seen as best practice right now.
 CSS has been converted into CSS Modules as this is currently the preferred option and means components can be more easily reused. 
 Testing was initially not done using TDD. Once testing is implemented for existing features (as of 28th June '21), all new features should be written using TDD.
@@ -50,7 +66,15 @@ If there are lint errors the page may not load until they are resolved, and you 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+<<<<<<< HEAD
 To test only one file, run `yarn test filename`
+=======
+To test only one file, run: 
+
+```bash
+yarn test name_of_file
+```
+>>>>>>> b61a3febd06078ed05bb4e720672a0859d61de50
 
 ### `yarn build`
 
