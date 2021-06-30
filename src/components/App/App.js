@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
 import HeaderImage from '../HeaderImage/HeaderImage';
@@ -19,8 +20,8 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
-export default function App() {
-  const [items, setItems] = useState(todos);
+export default function App({ todoProp }) {
+  const [items, setItems] = useState(todoProp);
   const [formDisplay, setFormDisplay] = useState(false);
   const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
@@ -72,6 +73,7 @@ export default function App() {
     tempItem.done = false;
     tempItems.push(tempItem);
     setItems([...tempItems]);
+    // console.log(item.dueDate); this is to find numbers for the tests, needs to be removed
   };
 
   const toggleRainbow = () => {
@@ -122,3 +124,11 @@ export default function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  todoProp: PropTypes.oneOfType([PropTypes.array]),
+};
+
+App.defaultProps = {
+  todoProp: todos,
+};
