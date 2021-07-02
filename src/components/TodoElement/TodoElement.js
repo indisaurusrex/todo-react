@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TodoElement.module.css';
 
+/** 
+ * Each item on the todo is rendered with this, it also handles editing the title, removing and holding the checkbox for done
+ */
 export default function TodoElement({
   item,
   changeCheckbox,

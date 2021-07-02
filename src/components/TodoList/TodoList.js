@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
 
+/** 
+ * The table headers and holder for the todos to sit in
+ */
 export default function TodoList({
   items,
   changeCheckbox,
