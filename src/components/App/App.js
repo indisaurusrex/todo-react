@@ -20,6 +20,9 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
+/** 
+ * Renders the app, holds most functions that affect the todo list
+ */
 export default function App({ todoProp }) {
   const [items, setItems] = useState(todoProp);
   const [formDisplay, setFormDisplay] = useState(false);
