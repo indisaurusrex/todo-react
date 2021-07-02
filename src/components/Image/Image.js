@@ -15,35 +15,27 @@ import forestsun from '../../images/mountain.jpg';
 
 export default function Image({ donePercent, treeToggle }) {
   let imgSrc = '';
+  const weatherImageList = [
+    { maxNumber: 20, image: weather01 },
+    { maxNumber: 40, image: weather02 },
+    { maxNumber: 70, image: weather03 },
+    { maxNumber: 95, image: weather04 },
+    { maxNumber: 100, image: weather05 },
+  ];
+
+  const forestImageList = [
+    { maxNumber: 15, image: foreststorm },
+    { maxNumber: 30, image: forestfog },
+    { maxNumber: 50, image: forestrain },
+    { maxNumber: 75, image: forestrainbow },
+    { maxNumber: 95, image: forestpartialsun },
+    { maxNumber: 100, image: forestsun },
+  ];
 
   if (!treeToggle) {
-    if (donePercent < 20) {
-      imgSrc = weather01;
-    } else if (donePercent === 20 || donePercent < 40) {
-      imgSrc = weather02;
-    } else if (donePercent === 40 || donePercent < 70) {
-      imgSrc = weather03;
-    } else if (donePercent === 70 || donePercent < 95) {
-      imgSrc = weather04;
-    } else {
-      imgSrc = weather05;
-    }
-  }
-
-  if (treeToggle) {
-    if (donePercent < 15) {
-      imgSrc = foreststorm;
-    } else if (donePercent === 15 || donePercent < 30) {
-      imgSrc = forestfog;
-    } else if (donePercent === 30 || donePercent < 50) {
-      imgSrc = forestrain;
-    } else if (donePercent === 50 || donePercent < 75) {
-      imgSrc = forestrainbow;
-    } else if (donePercent === 75 || donePercent < 95) {
-      imgSrc = forestpartialsun;
-    } else {
-      imgSrc = forestsun;
-    }
+    imgSrc = weatherImageList.find((x) => x.maxNumber >= donePercent).image;
+  } else {
+    imgSrc = forestImageList.find((x) => x.maxNumber >= donePercent).image;
   }
 
   return <img className={styles.backgroundImage} src={imgSrc} alt="weather" />;
