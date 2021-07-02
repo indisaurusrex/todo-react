@@ -5,6 +5,9 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { useForm } from 'react-hook-form';
 import styles from './AddNewTodo.module.css';
 
+/** 
+ * This component has the button and form to add a new todo to the list
+ */
 export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
   const {
     register,
