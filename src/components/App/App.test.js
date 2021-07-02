@@ -3,8 +3,8 @@ import {
   fireEvent, render, screen,
 } from '@testing-library/react';
 import App from './App';
-import regenerator from 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
+import 'regenerator-runtime/runtime';
 
 const mockTodosFour = [
   {
@@ -93,5 +93,20 @@ describe('App component', () => {
     const listOfTodos = screen.getAllByTestId('todoTitle');
     const lastTodo = listOfTodos[listOfTodos.length - 1];
     expect(lastTodo).toHaveTextContent('Hotel booking for holiday');
+  });
+
+  it('orders the todo list by due date in descending order', () => {
+    const todoItem = {
+      id: 115,
+      title: 'Go grocery shopping',
+      location: 'Supermarket',
+      dueDate: 1625083200000, // 30 June 9:00 pm
+      done: false,
+    };
+
+    mockTodosFourV2.push(todoItem);
+    render(<App todoProp={mockTodosFourV2} />);
+    const listOfTodos = screen.getAllByTestId('todoTitle');
+    expect(listOfTodos[0]).toHaveTextContent(todoItem.title);
   });
 });
