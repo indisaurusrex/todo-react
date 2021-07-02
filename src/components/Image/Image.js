@@ -1,36 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Image.module.css';
-import weather01 from '../../images/weather-01.jpeg';
-import weather02 from '../../images/weather-02.jpg';
-import weather03 from '../../images/weather-03.jpg';
-import weather04 from '../../images/weather-04.jpg';
-import weather05 from '../../images/weather-05.jpg';
-import foreststorm from '../../images/lightning.jpg';
-import forestrain from '../../images/rain.jpg';
-import forestfog from '../../images/fog.jpg';
-import forestrainbow from '../../images/rainbowforest.jpg';
-import forestpartialsun from '../../images/sun-through-trees.jpg';
-import forestsun from '../../images/mountain.jpg';
+import { weatherImageList, forestImageList } from '../../app/images';
 
 export default function Image({ donePercent, treeToggle }) {
   let imgSrc = '';
-  const weatherImageList = [
-    { maxNumber: 20, image: weather01 },
-    { maxNumber: 40, image: weather02 },
-    { maxNumber: 70, image: weather03 },
-    { maxNumber: 95, image: weather04 },
-    { maxNumber: 100, image: weather05 },
-  ];
-
-  const forestImageList = [
-    { maxNumber: 15, image: foreststorm },
-    { maxNumber: 30, image: forestfog },
-    { maxNumber: 50, image: forestrain },
-    { maxNumber: 75, image: forestrainbow },
-    { maxNumber: 95, image: forestpartialsun },
-    { maxNumber: 100, image: forestsun },
-  ];
 
   if (!treeToggle) {
     imgSrc = weatherImageList.find((x) => x.maxNumber >= donePercent).image;
