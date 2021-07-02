@@ -59,7 +59,7 @@ export default function App({ todoProp }) {
         changedCheckboxList.push(todo);
       }
     });
-    setItems([...changedCheckboxList]);
+    setItems(changedCheckboxList);
   };
 
   const toggleForm = () => {
@@ -72,7 +72,7 @@ export default function App({ todoProp }) {
     tempItem.id = findNextId();
     tempItem.done = false;
     tempItems.push(tempItem);
-    setItems([...tempItems]);
+    setItems(tempItems);
     // console.log(item.dueDate); this is to find numbers for the tests, needs to be removed
   };
 
