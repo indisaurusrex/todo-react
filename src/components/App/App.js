@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import randomWords from 'random-words';
 import Card from '@material-ui/core/Card';
 import HeaderImage from '../HeaderImage/HeaderImage';
 import TodoList from '../TodoList/TodoList';
 import rainbow from '../../images/rainbow.png';
 import tree from '../../images/pine.png';
 import styles from './App.module.css';
+import createTodoList from '../../app/todoListCreator';
 
-const todos = [];
+// const todos = [];
 
-for (let i = 0; i < 10; i += 1) {
-  todos.push({
-    id: i,
-    title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
-    location: randomWords(),
-    dueDate: Math.floor(Math.random() * 1000000000),
-    done: Math.random() < 0.5,
-  });
-}
+// for (let i = 0; i < 10; i += 1) {
+//   todos.push({
+//     id: i,
+//     title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
+//     location: randomWords(),
+//     dueDate: Math.floor(Math.random() * 1000000000),
+//     done: Math.random() < 0.5,
+//   });
+// }
 
-/** 
+/**
  * Renders the app, holds most functions that affect the todo list
  */
 export default function App({ todoProp }) {
@@ -133,5 +133,5 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  todoProp: todos,
+  todoProp: createTodoList(),
 };

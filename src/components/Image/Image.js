@@ -4,7 +4,8 @@ import styles from './Image.module.css';
 import { weatherImageList, forestImageList } from '../../app/images';
 
 /**
- * Render the image at the top of the app according to the tree toggle and progress tracker (donePercent)
+ * Render the image at the top of the app according to the tree toggle
+ * and progress tracker (donePercent)
  */
 export default function Image({ donePercent, treeToggle }) {
   let imgSrc = '';

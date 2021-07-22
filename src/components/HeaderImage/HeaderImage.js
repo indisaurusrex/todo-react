@@ -6,8 +6,9 @@ import TodoDate from '../Date/Date';
 import Progress from '../Progress/Progress';
 import Image from '../Image/Image';
 
-/** 
- * Holder for the images which change according to progress, the progress trackers and add new todo button/form
+/**
+ * Holder for the images which change according to progress,
+ * the progress trackers and add new todo button/form
  */
 export default function HeaderImage({
   items,
