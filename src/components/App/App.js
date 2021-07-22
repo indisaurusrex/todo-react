@@ -7,18 +7,7 @@ import rainbow from '../../images/rainbow.png';
 import tree from '../../images/pine.png';
 import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
-
-// const todos = [];
-
-// for (let i = 0; i < 10; i += 1) {
-//   todos.push({
-//     id: i,
-//     title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
-//     location: randomWords(),
-//     dueDate: Math.floor(Math.random() * 1000000000),
-//     done: Math.random() < 0.5,
-//   });
-// }
+import findNextId from '../../app/findNextId';
 
 /**
  * Renders the app, holds most functions that affect the todo list
@@ -46,9 +35,13 @@ export default function App({ todoProp }) {
     setItems(updatedTodos);
   };
 
-  const findNextId = () => {
-    const newId = Math.max(...items.map((o) => o.id));
-    return newId + 1;
+  const addTodo = (item) => {
+    const tempItems = items;
+    const tempItem = item;
+    tempItem.id = findNextId(items);
+    tempItem.done = false;
+    tempItems.push(tempItem);
+    setItems([...tempItems]);
   };
 
   const handleCheckboxChange = (item) => {
@@ -67,16 +60,6 @@ export default function App({ todoProp }) {
 
   const toggleForm = () => {
     setFormDisplay(!formDisplay);
-  };
-
-  const addTodo = (item) => {
-    const tempItems = items;
-    const tempItem = item;
-    tempItem.id = findNextId();
-    tempItem.done = false;
-    tempItems.push(tempItem);
-    setItems([...tempItems]);
-    // console.log(item.dueDate); this is to find numbers for the tests, needs to be removed
   };
 
   const toggleRainbow = () => {
