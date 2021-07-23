@@ -5,10 +5,10 @@ import styles from './Date.module.css';
 /**
  * Displays today's date on the header image
  */
-export default function TodoDate() {
-  return (
-    <div className={styles.dateInHeader}>
-      <Moment date={new Date()} format="D MMMM YYYY" />
-    </div>
-  );
-}
+const TodoDate = () => (
+  <div className={styles.dateInHeader}>
+    <Moment date={new Date()} format="D MMMM YYYY" />
+  </div>
+);
+
+export default TodoDate;

@@ -10,13 +10,13 @@ import Image from '../Image/Image';
  * Holder for the images which change according to progress,
  * the progress trackers and add new todo button/form
  */
-export default function HeaderImage({
+const HeaderImage = ({
   items,
-  formDisplay,
+  isFormDisplay,
   toggleForm,
   addTodo,
   treeToggle,
-}) {
+}) => {
   let doneCount = 0;
 
   items.map((item) => {
@@ -33,7 +33,7 @@ export default function HeaderImage({
       <Image donePercent={donePercent} treeToggle={treeToggle} />
       <div className={styles.darkShade}>
         <AddNewTodo
-          formDisplay={formDisplay}
+          isFormDisplay={isFormDisplay}
           toggleForm={toggleForm}
           addTodo={addTodo}
         />
@@ -42,11 +42,13 @@ export default function HeaderImage({
       </div>
     </div>
   );
-}
+};
+
+export default HeaderImage;
 
 HeaderImage.propTypes = {
   items: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  formDisplay: PropTypes.bool.isRequired,
+  isFormDisplay: PropTypes.bool.isRequired,
   toggleForm: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
   treeToggle: PropTypes.bool.isRequired,

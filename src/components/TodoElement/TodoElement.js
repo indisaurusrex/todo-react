@@ -2,17 +2,24 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TodoElement.module.css';
 
+const editButton = 'Edit';
+const cancel = 'Cancel';
+const save = 'Save';
+const remove = 'x';
+
 /**
  * Each item on the todo is rendered with this,
  * it also handles editing the title, removing and holding the checkbox for done
  */
-export default function TodoElement({
+const TodoElement = ({
   item,
   changeCheckbox,
   removeTodo,
   updateTodo,
-}) {
+}) => {
+  // rename to due date of instead of the date
   const theDate = new Date(item.dueDate);
+  // add into the process date time function as well as the below
   const hours = `0${theDate.getHours()}`.slice(-2);
   const mins = `0${theDate.getMinutes()}`.slice(-2);
   const [todo, setTodo] = useState(item.title);
@@ -38,7 +45,7 @@ export default function TodoElement({
           <div className={styles.todo}>
             {`${item.title} `}
             <button type="submit" onClick={handleEdit}>
-              Edit
+              {editButton}
             </button>
           </div>
         </th>
@@ -52,11 +59,11 @@ export default function TodoElement({
           />
           &nbsp;
           <button type="submit" onClick={handleEdit}>
-            Cancel
+            {cancel}
           </button>
           &nbsp;
           <button type="submit" onClick={() => handleEditSubmit(item.id)}>
-            Save
+            {save}
           </button>
         </td>
       )}
@@ -84,12 +91,14 @@ export default function TodoElement({
             removeTodo(item.id);
           }}
         >
-          x
+          {remove}
         </button>
       </th>
     </tr>
   );
-}
+};
+
+export default TodoElement;
 
 TodoElement.propTypes = {
   item: PropTypes.oneOfType([PropTypes.object]).isRequired,

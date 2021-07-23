@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
 
+const title = 'Title';
+const location = 'Location';
+const due = 'Due';
+const done = 'Done';
+
 /**
  * The table headers and holder for the todos to sit in
  */
-export default function TodoList({
+const TodoList = ({
   items,
   changeCheckbox,
   removeTodo,
   updateTodo,
-}) {
+}) => {
   const sortedList = [...items];
 
   sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
@@ -31,17 +36,19 @@ export default function TodoList({
       <table className={styles.todoTable}>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Due</th>
-            <th>Done</th>
+            <th>{title}</th>
+            <th>{location}</th>
+            <th>{due}</th>
+            <th>{done}</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
       </table>
     </div>
   );
-}
+};
+
+export default TodoList;
 
 TodoList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.array]).isRequired,

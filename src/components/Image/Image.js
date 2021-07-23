@@ -7,7 +7,7 @@ import { weatherImageList, forestImageList } from '../../app/images';
  * Render the image at the top of the app according to the tree toggle
  * and progress tracker (donePercent)
  */
-export default function Image({ donePercent, treeToggle }) {
+const Image = ({ donePercent, treeToggle }) => {
   let imgSrc = '';
 
   if (!treeToggle) {
@@ -16,8 +16,10 @@ export default function Image({ donePercent, treeToggle }) {
     imgSrc = forestImageList.find((x) => x.maxNumber >= donePercent).image;
   }
 
-  return <img className={styles.backgroundImage} src={imgSrc} alt="weather" />;
-}
+  return <img className={styles.image} src={imgSrc} alt="weather" />;
+};
+
+export default Image;
 
 Image.propTypes = {
   donePercent: PropTypes.number.isRequired,

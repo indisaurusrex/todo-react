@@ -9,20 +9,25 @@ import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
 import findNextId from '../../app/findNextId';
 
+const header = 'Do these things:';
 /**
  * Renders the app, holds most functions that affect the todo list
  */
-export default function App({ todoProp }) {
-  const [items, setItems] = useState(todoProp);
-  const [formDisplay, setFormDisplay] = useState(false);
+const App = ({ todos }) => {
+  const [items, setItems] = useState(todos);
+  // moving out
+  const [isFormDisplay, setIsFormDisplay] = useState(false);
+  //  mmoving into new component
   const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
 
+  // Should this be in todoList?
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
     setItems(remainingTodos);
   };
 
+  // should this be in todoList?
   const updateTodo = (id, newTitle) => {
     const updatedTodos = items;
     updatedTodos.map((todo) => {
@@ -35,6 +40,7 @@ export default function App({ todoProp }) {
     setItems(updatedTodos);
   };
 
+  // should this be in todoList?
   const addTodo = (item) => {
     const tempItems = items;
     const tempItem = item;
@@ -44,6 +50,7 @@ export default function App({ todoProp }) {
     setItems([...tempItems]);
   };
 
+  // this should be in todoList
   const handleCheckboxChange = (item) => {
     const changedCheckboxList = [];
     const changedItem = item;
@@ -58,18 +65,22 @@ export default function App({ todoProp }) {
     setItems([...changedCheckboxList]);
   };
 
+  // this should be on header image
   const toggleForm = () => {
-    setFormDisplay(!formDisplay);
+    setIsFormDisplay(!isFormDisplay);
   };
 
+  // this can stay in app
   const toggleRainbow = () => {
     setRainbowBackground(!rainbowBackground);
   };
 
+  // this should be on header image
   const toggleTreeImage = () => {
     setTreeToggle(!treeToggle);
   };
 
+  // this can stay in app
   const backgroundChoice = rainbowBackground ? styles.rainbowBackground : '';
 
   return (
@@ -78,7 +89,7 @@ export default function App({ todoProp }) {
         <Card className={styles.root}>
           <HeaderImage
             items={items}
-            formDisplay={formDisplay}
+            isFormDisplay={isFormDisplay}
             toggleForm={toggleForm}
             addTodo={addTodo}
             treeToggle={treeToggle}
@@ -98,7 +109,7 @@ export default function App({ todoProp }) {
             onClick={toggleTreeImage}
           />
 
-          <h1>Do these things:</h1>
+          <h1>{header}</h1>
           <TodoList
             items={items}
             changeCheckbox={handleCheckboxChange}
@@ -109,12 +120,14 @@ export default function App({ todoProp }) {
       </div>
     </div>
   );
-}
+};
+
+export default App;
 
 App.propTypes = {
-  todoProp: PropTypes.oneOfType([PropTypes.array]),
+  todos: PropTypes.oneOfType([PropTypes.array]),
 };
 
 App.defaultProps = {
-  todoProp: createTodoList(),
+  todos: createTodoList(),
 };

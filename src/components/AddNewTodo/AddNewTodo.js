@@ -5,10 +5,17 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import { useForm } from 'react-hook-form';
 import styles from './AddNewTodo.module.css';
 
+const missingTitle = 'Please enter a title';
+const missingLocation = 'Please enter a location';
+const missingDate = 'Please enter a location';
+const missingTime = 'Please enter a time';
+const submit = 'Submit';
+const addAnItem = 'Add an item';
+
 /**
  * This component has the button and form to add a new todo to the list
  */
-export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
+const AddNewTodo = ({ isFormDisplay, toggleForm, addTodo }) => {
   const {
     register,
     handleSubmit,
@@ -28,7 +35,7 @@ export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
     toggleForm(false);
   };
 
-  const formDisplayer = formDisplay ? '' : styles.addAppointment;
+  const formDisplayer = isFormDisplay ? '' : styles.addAppointment;
 
   return (
     <div>
@@ -36,7 +43,7 @@ export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
         className={`${formDisplayer}`}
       >
         <Button size="small" startIcon={<AddCircleIcon />} onClick={toggleForm}>
-          Add an item
+          {addAnItem}
         </Button>
         <div className={styles.cardBody}>
           <div className={styles.addTodoCard}>
@@ -47,32 +54,34 @@ export default function AddNewTodo({ formDisplay, toggleForm, addTodo }) {
                 type="text"
                 placeholder="What is it?"
               />
-              {errors.title && <p>Please enter a title</p>}
+              {errors.title && <p>{missingTitle}</p>}
               <div style={{ padding: '10px' }} />
               <input
                 {...register('location', { required: true })}
                 type="text"
                 placeholder="Where is it?"
               />
-              {errors.location && <p>Please enter a location</p>}
+              {errors.location && <p>{missingLocation}</p>}
               <div style={{ padding: '10px' }} />
               <input {...register('dueDate', { required: true })} type="date" />
-              {errors.dueDate && <p>Please enter a date</p>}
+              {errors.dueDate && <p>{missingDate}</p>}
               <div style={{ padding: '10px' }} />
               <input {...register('dueTime', { required: true })} type="time" />
-              {errors.dueTime && <p>Please enter a time</p>}
+              {errors.dueTime && <p>{missingTime}</p>}
               <div style={{ padding: '10px' }} />
-              <button type="submit">Submit</button>
+              <button type="submit">{submit}</button>
             </form>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default AddNewTodo;
 
 AddNewTodo.propTypes = {
-  formDisplay: PropTypes.bool.isRequired,
+  isFormDisplay: PropTypes.bool.isRequired,
   toggleForm: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
 };
