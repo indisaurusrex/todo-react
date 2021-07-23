@@ -22,20 +22,20 @@ const TodoElement = ({
   // add into the process date time function as well as the below
   const hours = `0${theDate.getHours()}`.slice(-2);
   const mins = `0${theDate.getMinutes()}`.slice(-2);
-  const [todo, setTodo] = useState(item.title);
+  const [todoTitle, setTodoTitle] = useState(item.title);
   const [edit, setEdit] = useState(false);
 
   const handleEditChange = (e) => {
-    setTodo(e.target.value);
+    setTodoTitle(e.target.value);
   };
 
-  const handleEdit = () => {
+  const toggleEdit = () => {
     setEdit(!edit);
   };
 
-  const handleEditSubmit = (id) => {
-    updateTodo(id, todo);
-    handleEdit();
+  const saveEdit = (id) => {
+    updateTodo(id, todoTitle);
+    toggleEdit();
   };
 
   return (
@@ -44,7 +44,7 @@ const TodoElement = ({
         <th data-testid="todoTitle">
           <div className={styles.todo}>
             {`${item.title} `}
-            <button type="submit" onClick={handleEdit}>
+            <button type="submit" onClick={toggleEdit}>
               {editButton}
             </button>
           </div>
@@ -53,16 +53,16 @@ const TodoElement = ({
         <td>
           <input
             type="text"
-            value={todo}
+            value={todoTitle}
             name="todo"
             onChange={handleEditChange}
           />
           &nbsp;
-          <button type="submit" onClick={handleEdit}>
+          <button type="submit" onClick={toggleEdit}>
             {cancel}
           </button>
           &nbsp;
-          <button type="submit" onClick={() => handleEditSubmit(item.id)}>
+          <button type="submit" onClick={() => saveEdit(item.id)}>
             {save}
           </button>
         </td>

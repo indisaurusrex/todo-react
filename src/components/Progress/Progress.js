@@ -4,6 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from './Progress.module.css';
 
 const percentDone = '% done';
+
 /**
  * Show the progress on the top of the image in the form of done percent, and the circle of done
  */
