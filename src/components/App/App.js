@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import Header from '../Header/Header';
 import TodoList from '../TodoList/TodoList';
-import rainbow from '../../images/rainbow.png';
 import tree from '../../images/pine.png';
 import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
 import findNextId from '../../app/findNextId';
 
 const header = 'Do these things:';
+
 /**
  * Renders the app, holds most functions that affect the todo list
  */
@@ -18,7 +18,6 @@ const App = ({ todos }) => {
   // moving out
   const [isFormDisplay, setIsFormDisplay] = useState(false);
   //  mmoving into new component
-  const [rainbowBackground, setRainbowBackground] = useState(false);
   const [treeToggle, setTreeToggle] = useState(false);
 
   // Should this be in todoList?
@@ -70,18 +69,10 @@ const App = ({ todos }) => {
     setIsFormDisplay(!isFormDisplay);
   };
 
-  // this can stay in app
-  const toggleRainbow = () => {
-    setRainbowBackground(!rainbowBackground);
-  };
-
   // this should be on header image
   const toggleTreeImage = () => {
     setTreeToggle(!treeToggle);
   };
-
-  // this can stay in app
-  const backgroundChoice = rainbowBackground ? styles.rainbowBackground : '';
 
   return (
     <div className={backgroundChoice}>
@@ -93,13 +84,6 @@ const App = ({ todos }) => {
             toggleForm={toggleForm}
             addTodo={addTodo}
             treeToggle={treeToggle}
-          />
-          <input
-            type="image"
-            alt="rainbow background toggle"
-            className={styles.rainbowButton}
-            src={rainbow}
-            onClick={toggleRainbow}
           />
           <input
             type="image"
