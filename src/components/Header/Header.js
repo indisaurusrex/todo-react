@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Header.module.css';
 import AddNewTodo from '../AddNewTodo/AddNewTodo';
@@ -12,11 +12,13 @@ import HeaderImage from '../HeaderImage/HeaderImage';
  */
 const Header = ({
   items,
-  isFormDisplay,
-  toggleForm,
   addTodo,
   treeToggle,
 }) => {
+  const [isFormDisplay, setIsFormDisplay] = useState(false);
+  const toggleIsFormDisplay = () => {
+    setIsFormDisplay(!isFormDisplay);
+  };
   let doneCount = 0;
 
   items.map((item) => {
@@ -34,7 +36,7 @@ const Header = ({
       <div className={styles.darkShade}>
         <AddNewTodo
           isFormDisplay={isFormDisplay}
-          toggleForm={toggleForm}
+          toggleForm={toggleIsFormDisplay}
           addTodo={addTodo}
         />
         <Progress donePercent={donePercent} />
@@ -48,8 +50,6 @@ export default Header;
 
 Header.propTypes = {
   items: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  isFormDisplay: PropTypes.bool.isRequired,
-  toggleForm: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
   treeToggle: PropTypes.bool.isRequired,
 };

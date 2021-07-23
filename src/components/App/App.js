@@ -15,18 +15,14 @@ const header = 'Do these things:';
  */
 const App = ({ todos }) => {
   const [items, setItems] = useState(todos);
-  // moving out
-  const [isFormDisplay, setIsFormDisplay] = useState(false);
   //  mmoving into new component
   const [treeToggle, setTreeToggle] = useState(false);
 
-  // Should this be in todoList?
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
     setItems(remainingTodos);
   };
 
-  // should this be in todoList?
   const updateTodo = (id, newTitle) => {
     const updatedTodos = items;
     updatedTodos.map((todo) => {
@@ -39,7 +35,6 @@ const App = ({ todos }) => {
     setItems(updatedTodos);
   };
 
-  // should this be in todoList?
   const addTodo = (item) => {
     const tempItems = items;
     const tempItem = item;
@@ -49,7 +44,6 @@ const App = ({ todos }) => {
     setItems([...tempItems]);
   };
 
-  // this should be in todoList
   const handleCheckboxChange = (item) => {
     const changedCheckboxList = [];
     const changedItem = item;
@@ -65,23 +59,16 @@ const App = ({ todos }) => {
   };
 
   // this should be on header image
-  const toggleForm = () => {
-    setIsFormDisplay(!isFormDisplay);
-  };
-
-  // this should be on header image
   const toggleTreeImage = () => {
     setTreeToggle(!treeToggle);
   };
 
   return (
-    <div className={backgroundChoice}>
+    <div>
       <div className={styles.app}>
         <Card className={styles.root}>
           <Header
             items={items}
-            isFormDisplay={isFormDisplay}
-            toggleForm={toggleForm}
             addTodo={addTodo}
             treeToggle={treeToggle}
           />

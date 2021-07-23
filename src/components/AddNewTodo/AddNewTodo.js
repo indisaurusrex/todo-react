@@ -32,7 +32,7 @@ const AddNewTodo = ({ isFormDisplay, toggleForm, addTodo }) => {
     };
     addTodo(todo);
     reset();
-    toggleForm(false);
+    toggleForm();
   };
 
   const formDisplayer = isFormDisplay ? '' : styles.addAppointment;
