@@ -10,11 +10,7 @@ import HeaderImage from '../HeaderImage/HeaderImage';
  * Holder for the images which change according to progress,
  * the progress trackers and add new todo button/form
  */
-const Header = ({
-  items,
-  addTodo,
-  treeToggle,
-}) => {
+const Header = ({ items, addTodo, treeToggle }) => {
   const [isFormDisplay, setIsFormDisplay] = useState(false);
   const toggleIsFormDisplay = () => {
     setIsFormDisplay(!isFormDisplay);
@@ -36,7 +32,7 @@ const Header = ({
       <div className={styles.darkShade}>
         <AddNewTodo
           isFormDisplay={isFormDisplay}
-          toggleForm={toggleIsFormDisplay}
+          toggleFormDisplay={toggleIsFormDisplay}
           addTodo={addTodo}
         />
         <Progress donePercent={donePercent} />

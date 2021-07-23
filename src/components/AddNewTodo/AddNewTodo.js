@@ -15,7 +15,7 @@ const addAnItem = 'Add an item';
 /**
  * This component has the button and form to add a new todo to the list
  */
-const AddNewTodo = ({ isFormDisplay, toggleForm, addTodo }) => {
+const AddNewTodo = ({ isFormDisplay, toggleFormDisplay, addTodo }) => {
   const {
     register,
     handleSubmit,
@@ -32,17 +32,19 @@ const AddNewTodo = ({ isFormDisplay, toggleForm, addTodo }) => {
     };
     addTodo(todo);
     reset();
-    toggleForm();
+    toggleFormDisplay();
   };
 
   const formDisplayer = isFormDisplay ? '' : styles.addAppointment;
 
   return (
     <div>
-      <div
-        className={`${formDisplayer}`}
-      >
-        <Button size="small" startIcon={<AddCircleIcon />} onClick={toggleForm}>
+      <div className={`${formDisplayer}`}>
+        <Button
+          size="small"
+          startIcon={<AddCircleIcon />}
+          onClick={toggleFormDisplay}
+        >
           {addAnItem}
         </Button>
         <div className={styles.cardBody}>
@@ -82,6 +84,6 @@ export default AddNewTodo;
 
 AddNewTodo.propTypes = {
   isFormDisplay: PropTypes.bool.isRequired,
-  toggleForm: PropTypes.func.isRequired,
+  toggleFormDisplay: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
 };
