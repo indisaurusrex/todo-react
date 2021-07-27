@@ -24,9 +24,3 @@ body {
 .root {
   min-width: 275px;
 }
-
-.treeButton {
-  height: 20px;
-  margin-top: 10px;
-  margin-bottom: -15px;
-}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import Header from '../Header/Header';
 import TodoList from '../TodoList/TodoList';
-import tree from '../../images/pine.png';
 import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
 import findNextId from '../../app/findNextId';
@@ -15,8 +14,6 @@ const header = 'Do these things:';
  */
 const App = ({ todos }) => {
   const [items, setItems] = useState(todos);
-  //  mmoving into new component
-  const [treeToggle, setTreeToggle] = useState(false);
 
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
@@ -58,11 +55,6 @@ const App = ({ todos }) => {
     setItems([...changedCheckboxList]);
   };
 
-  // this should be on header image
-  const toggleTreeImage = () => {
-    setTreeToggle(!treeToggle);
-  };
-
   return (
     <div>
       <div className={styles.app}>
@@ -70,16 +62,7 @@ const App = ({ todos }) => {
           <Header
             items={items}
             addTodo={addTodo}
-            treeToggle={treeToggle}
           />
-          <input
-            type="image"
-            alt="tree header image toggle"
-            className={styles.treeButton}
-            src={tree}
-            onClick={toggleTreeImage}
-          />
-
           <h1>{header}</h1>
           <TodoList
             items={items}
