@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import TodoList from '../TodoList/TodoList';
 import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
-import findNextId from '../../app/findNextId';
+import generateId from '../../app/generateId';
 
 const header = 'Do these things:';
 
@@ -35,7 +35,7 @@ const App = ({ todos }) => {
   const addTodo = (item) => {
     const tempItems = items;
     const tempItem = item;
-    tempItem.id = findNextId(items);
+    tempItem.id = generateId(items);
     tempItem.done = false;
     tempItems.push(tempItem);
     setItems([...tempItems]);
