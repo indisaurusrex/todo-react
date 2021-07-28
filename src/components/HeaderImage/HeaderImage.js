@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './HeaderImage.module.css';
-import { weatherImageList, forestImageList } from '../../app/images';
+import { weatherImageList, forestImageList } from './imageMapping';
 
 /**
  * Render the image at the top of the app according to the tree toggle
