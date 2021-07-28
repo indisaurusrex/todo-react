@@ -83,7 +83,7 @@ const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
 export default AddNewTodo;
 
 AddNewTodo.propTypes = {
-  isFormDisplay: PropTypes.bool.isRequired,
-  toggleFormDisplay: PropTypes.func.isRequired,
+  isFormDisplaying: PropTypes.bool.isRequired,
+  toggleFormDisplaying: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
 };
