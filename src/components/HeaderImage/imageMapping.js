@@ -10,7 +10,7 @@ import forestrainbow from '../../images/rainbowforest.jpg';
 import forestpartialsun from '../../images/sun-through-trees.jpg';
 import forestsun from '../../images/mountain.jpg';
 
-export const weatherImageList = [
+export const weatherImagesMap = [
   { maxNumber: 20, image: weather01 },
   { maxNumber: 40, image: weather02 },
   { maxNumber: 70, image: weather03 },
@@ -18,7 +18,7 @@ export const weatherImageList = [
   { maxNumber: 100, image: weather05 },
 ];
 
-export const forestImageList = [
+export const forestImagesMap = [
   { maxNumber: 15, image: foreststorm },
   { maxNumber: 30, image: forestfog },
   { maxNumber: 50, image: forestrain },
