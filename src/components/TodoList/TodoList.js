@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
+import todoListSorter from '../../app/todoListSorter';
 
 const title = 'Title';
 const location = 'Location';
@@ -17,11 +18,7 @@ const TodoList = ({
   removeTodo,
   updateTodo,
 }) => {
-  const sortedList = [...items];
-
-  sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
-
-  const rows = sortedList.map((item) => (
+  const rows = todoListSorter(items).map((item) => (
     <TodoElement
       key={item.id}
       item={item}
