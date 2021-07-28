@@ -18,7 +18,7 @@ const TodoList = ({
   removeTodo,
   updateTodo,
 }) => {
-  const rows = todoListSorter(items).map((item) => (
+  const sortedTodos = todoListSorter(items).map((item) => (
     <TodoElement
       key={item.id}
       item={item}
@@ -39,7 +39,7 @@ const TodoList = ({
             <th>{done}</th>
           </tr>
         </thead>
-        <tbody>{rows}</tbody>
+        <tbody>{sortedTodos}</tbody>
       </table>
     </div>
   );
