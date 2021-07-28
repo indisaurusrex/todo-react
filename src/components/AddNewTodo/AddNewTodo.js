@@ -15,7 +15,7 @@ const addAnItem = 'Add an item';
 /**
  * This component has the button and form to add a new todo to the list
  */
-const AddNewTodo = ({ isFormDisplay, toggleFormDisplay, addTodo }) => {
+const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
   const {
     register,
     handleSubmit,
@@ -32,10 +32,10 @@ const AddNewTodo = ({ isFormDisplay, toggleFormDisplay, addTodo }) => {
     };
     addTodo(todo);
     reset();
-    toggleFormDisplay();
+    toggleFormDisplaying();
   };
 
-  const formDisplayer = isFormDisplay ? '' : styles.addAppointment;
+  const formDisplayer = isFormDisplaying ? '' : styles.addAppointment;
 
   return (
     <div>
@@ -43,7 +43,7 @@ const AddNewTodo = ({ isFormDisplay, toggleFormDisplay, addTodo }) => {
         <Button
           size="small"
           startIcon={<AddCircleIcon />}
-          onClick={toggleFormDisplay}
+          onClick={toggleFormDisplaying}
         >
           {addAnItem}
         </Button>

@@ -14,11 +14,11 @@ import donePercentCalculator from '../../app/donePercentCalculator';
  * the progress trackers and add new todo button/form
  */
 const Header = ({ items, addTodo }) => {
-  const [isFormDisplay, setIsFormDisplay] = useState(false);
+  const [isFormDisplaying, setIsFormDisplaying] = useState(false);
   const [sceneryChoice, setSceneryChoice] = useState('weather');
 
-  const toggleIsFormDisplay = () => {
-    setIsFormDisplay(!isFormDisplay);
+  const toggleFormDisplaying = () => {
+    setIsFormDisplaying(!isFormDisplaying);
   };
   const chooseForestScenery = () => {
     setSceneryChoice('forest');
@@ -32,8 +32,8 @@ const Header = ({ items, addTodo }) => {
       <HeaderImage donePercent={donePercentCalculator(items)} sceneryChoice={sceneryChoice} />
       <div className={styles.darkShade}>
         <AddNewTodo
-          isFormDisplay={isFormDisplay}
-          toggleFormDisplay={toggleIsFormDisplay}
+          isFormDisplaying={isFormDisplaying}
+          toggleFormDisplaying={toggleFormDisplaying}
           addTodo={addTodo}
         />
         <Progress donePercent={donePercentCalculator(items)} />
