@@ -7,6 +7,7 @@ import Progress from '../Progress/Progress';
 import HeaderImage from '../HeaderImage/HeaderImage';
 import tree from '../../images/pine.png';
 import cloudSun from '../../images/cloud-sun.png';
+import donePercentCalculator from '../../app/donePercentCalculator';
 
 /**
  * Holder for the images which change according to progress,
@@ -25,27 +26,17 @@ const Header = ({ items, addTodo }) => {
   const chooseWeatherScenery = () => {
     setSceneryChoice('weather');
   };
-  let doneCount = 0;
-
-  items.map((item) => {
-    if (item.done) {
-      doneCount += 1;
-    }
-    return doneCount;
-  });
-
-  const donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100) || 0;
 
   return (
     <div className={styles.headerImage}>
-      <HeaderImage donePercent={donePercent} sceneryChoice={sceneryChoice} />
+      <HeaderImage donePercent={donePercentCalculator(items)} sceneryChoice={sceneryChoice} />
       <div className={styles.darkShade}>
         <AddNewTodo
           isFormDisplay={isFormDisplay}
           toggleFormDisplay={toggleIsFormDisplay}
           addTodo={addTodo}
         />
-        <Progress donePercent={donePercent} />
+        <Progress donePercent={donePercentCalculator(items)} />
         <TodoDate />
         <input
           type="image"
