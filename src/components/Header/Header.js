@@ -6,6 +6,7 @@ import TodoDate from '../Date/Date';
 import Progress from '../Progress/Progress';
 import HeaderImage from '../HeaderImage/HeaderImage';
 import tree from '../../images/pine.png';
+import cloudSun from '../../images/cloud-sun.png';
 
 /**
  * Holder for the images which change according to progress,
@@ -13,13 +14,16 @@ import tree from '../../images/pine.png';
  */
 const Header = ({ items, addTodo }) => {
   const [isFormDisplay, setIsFormDisplay] = useState(false);
-  const [treeToggle, setTreeToggle] = useState(false);
+  const [sceneryChoice, setSceneryChoice] = useState('weather');
 
   const toggleIsFormDisplay = () => {
     setIsFormDisplay(!isFormDisplay);
   };
-  const toggleTreeImage = () => {
-    setTreeToggle(!treeToggle);
+  const chooseForestScenery = () => {
+    setSceneryChoice('forest');
+  };
+  const chooseWeatherScenery = () => {
+    setSceneryChoice('weather');
   };
   let doneCount = 0;
 
@@ -34,7 +38,7 @@ const Header = ({ items, addTodo }) => {
 
   return (
     <div className={styles.headerImage}>
-      <HeaderImage donePercent={donePercent} treeToggle={treeToggle} />
+      <HeaderImage donePercent={donePercent} sceneryChoice={sceneryChoice} />
       <div className={styles.darkShade}>
         <AddNewTodo
           isFormDisplay={isFormDisplay}
@@ -45,10 +49,17 @@ const Header = ({ items, addTodo }) => {
         <TodoDate />
         <input
           type="image"
-          alt="tree header image toggle"
+          alt="tree scenery button"
           className={styles.treeButton}
           src={tree}
-          onClick={toggleTreeImage}
+          onClick={chooseForestScenery}
+        />
+        <input
+          type="image"
+          alt="weather scenery button"
+          className={styles.treeButton}
+          src={cloudSun}
+          onClick={chooseWeatherScenery}
         />
       </div>
     </div>

@@ -1,14 +1,14 @@
-import weather01 from '../images/weather-01.jpeg';
-import weather03 from '../images/weather-03.jpg';
-import weather02 from '../images/weather-02.jpg';
-import weather04 from '../images/weather-04.jpg';
-import weather05 from '../images/weather-05.jpg';
-import foreststorm from '../images/lightning.jpg';
-import forestrain from '../images/rain.jpg';
-import forestfog from '../images/fog.jpg';
-import forestrainbow from '../images/rainbowforest.jpg';
-import forestpartialsun from '../images/sun-through-trees.jpg';
-import forestsun from '../images/mountain.jpg';
+import weather01 from '../../images/weather-01.jpeg';
+import weather03 from '../../images/weather-03.jpg';
+import weather02 from '../../images/weather-02.jpg';
+import weather04 from '../../images/weather-04.jpg';
+import weather05 from '../../images/weather-05.jpg';
+import foreststorm from '../../images/lightning.jpg';
+import forestrain from '../../images/rain.jpg';
+import forestfog from '../../images/fog.jpg';
+import forestrainbow from '../../images/rainbowforest.jpg';
+import forestpartialsun from '../../images/sun-through-trees.jpg';
+import forestsun from '../../images/mountain.jpg';
 
 export const weatherImageList = [
   { maxNumber: 20, image: weather01 },
