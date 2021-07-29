@@ -1,11 +1,11 @@
 import React from 'react';
-import {
-  fireEvent, render, screen,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 import '@testing-library/jest-dom';
 import 'regenerator-runtime/runtime';
 
+// move out somewhere else, if they're needed for multiple 
+// consider whether to remake them or reuse them
 const mockTodosFour = [
   {
     id: 111,
@@ -73,19 +73,6 @@ describe('App component', () => {
     render(<App />);
     const headerText = screen.getByText(/Do these things/);
     expect(headerText).toBeInTheDocument();
-  });
-
-  it('progress percent increases appropriately when you tick a box', async () => {
-    render(<App todoProp={mockTodosFour} />);
-    expect(screen.getByTestId('Progress')).toHaveTextContent('25% done');
-    fireEvent.click(document.getElementById('112'));
-    expect(screen.getByTestId('Progress')).toHaveTextContent('50% done');
-  });
-
-  it('decreases done percent when a box is unticked', async () => {
-    render(<App todoProp={mockTodosFour} />);
-    fireEvent.click(document.getElementById('111'));
-    expect(screen.getByTestId('Progress')).toHaveTextContent('25% done');
   });
 
   it('shows the todos that are done at the bottom of the list', async () => {

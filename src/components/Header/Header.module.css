@@ -1,0 +1,17 @@
+.darkShade {
+  position: absolute;
+  background-color: rgba(158, 99, 217, 0.4);
+  width: 30%;
+  height: 273px;
+  border-radius: 5px;
+  left: 70%;
+}
+.headerImage {
+  width: 480px;
+  height: 270px;
+}
+.treeButton {
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}

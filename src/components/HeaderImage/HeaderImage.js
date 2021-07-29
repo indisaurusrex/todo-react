@@ -1,49 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './HeaderImage.module.css';
-import AddNewTodo from '../AddNewTodo/AddNewTodo';
-import TodoDate from '../Date/Date';
-import Progress from '../Progress/Progress';
-import Image from '../Image/Image';
+import { weatherImagesMap, forestImagesMap } from './imageMapping';
 
-export default function HeaderImage({
-  items,
-  formDisplay,
-  toggleForm,
-  addTodo,
-  treeToggle,
-}) {
-  let doneCount = 0;
+/**
+ * Render the image at the top of the app according to the tree toggle
+ * and progress tracker (donePercent)
+ */
+const HeaderImage = ({ donePercent, sceneryChoice }) => {
+  let imgSrc = '';
 
-  items.map((item) => {
-    if (item.done) {
-      doneCount += 1;
-    }
-    return doneCount;
-  });
+  if (sceneryChoice === 'weather') {
+    imgSrc = weatherImagesMap.find((x) => x.maxNumber >= donePercent).image;
+  } else if (sceneryChoice === 'forest') {
+    imgSrc = forestImagesMap.find((x) => x.maxNumber >= donePercent).image;
+  }
 
-  const donePercent = Math.round((doneCount / items.length + Number.EPSILON) * 100) || 0;
+  return <img className={styles.image} src={imgSrc} alt="scenery" />;
+};
 
-  return (
-    <div className={styles.headerImage}>
-      <Image donePercent={donePercent} treeToggle={treeToggle} />
-      <div className={styles.darkShade}>
-        <AddNewTodo
-          formDisplay={formDisplay}
-          toggleForm={toggleForm}
-          addTodo={addTodo}
-        />
-        <Progress donePercent={donePercent} />
-        <TodoDate />
-      </div>
-    </div>
-  );
-}
+export default HeaderImage;
 
 HeaderImage.propTypes = {
-  items: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  formDisplay: PropTypes.bool.isRequired,
-  toggleForm: PropTypes.func.isRequired,
-  addTodo: PropTypes.func.isRequired,
-  treeToggle: PropTypes.bool.isRequired,
+  donePercent: PropTypes.number.isRequired,
+  sceneryChoice: PropTypes.string.isRequired,
 };

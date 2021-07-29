@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import HeaderImage from './HeaderImage';
+import { render, fireEvent, screen } from '@testing-library/react';
+import Header from './Header';
 import '@testing-library/jest-dom/extend-expect';
 import 'regenerator-runtime/runtime';
 
@@ -41,12 +41,12 @@ const basicItems = [
   },
 ];
 
-describe('HeaderImage component', () => {
+describe('Header component', () => {
   const toggleForm = jest.fn();
   const addTodo = jest.fn();
 
   it('renders progress to 50% on initiation', () => {
-    render(<HeaderImage
+    render(<Header
       items={basicItems}
       formDisplay={false}
       toggleForm={toggleForm}
@@ -69,7 +69,7 @@ describe('HeaderImage component', () => {
 
     basicItems.push(anotherTodo);
 
-    render(<HeaderImage
+    render(<Header
       items={basicItems}
       formDisplay={false}
       toggleForm={toggleForm}
@@ -88,7 +88,7 @@ describe('HeaderImage component', () => {
       return item;
     });
 
-    render(<HeaderImage
+    render(<Header
       items={updatedItems}
       formDisplay={false}
       toggleForm={toggleForm}
