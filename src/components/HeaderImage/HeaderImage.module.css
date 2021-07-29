@@ -1,12 +1,8 @@
-.darkShade {
+.image {
+  border-radius: 4px;
+  width: 100%;
   position: absolute;
-  background-color: rgba(158, 99, 217, 0.4);
-  width: 30%;
+  left: 0%;
   height: 273px;
-  border-radius: 5px;
-  left: 70%;
-}
-.headerImage {
-  width: 480px;
-  height: 270px;
+  object-fit: cover;
 }

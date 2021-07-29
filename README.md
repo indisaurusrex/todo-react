@@ -44,6 +44,11 @@ Originally written in React class components, everything has been converted to u
 CSS has been converted into CSS Modules as this is currently the preferred option and means components can be more easily reused. 
 Testing was initially not done using TDD. Once testing is implemented for existing features (as of 28th June '21), all new features should be written using TDD.
 
+### Update (29 July '21)
+TDD hasn't been implemented or used properly yet. Priority has been given to restructuring the app to make it more readable and better at single responsibility principle.
+A new version of the app is being rewritten in TypeScript to get a better understanding of that. 
+[See this repo for the TS version (very much a WIP)](https://github.com/indisaurusrex/todo-typescript)
+
 ## Future opportunities
 
 Create and connect to a NodeJS web server, create and connect to a CRUD db web server. 

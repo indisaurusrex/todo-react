@@ -2,18 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoElement from '../TodoElement/TodoElement';
 import styles from './TodoList.module.css';
+import todoListSorter from '../../app/todoListSorter';
 
-export default function TodoList({
+const title = 'Title';
+const location = 'Location';
+const due = 'Due';
+const done = 'Done';
+
+/**
+ * The table headers and holder for the todos to sit in
+ */
+const TodoList = ({
   items,
   changeCheckbox,
   removeTodo,
   updateTodo,
-}) {
-  const sortedList = [...items];
-
-  sortedList.sort((x, y) => x.done - y.done || x.dueDate - y.dueDate);
-
-  const rows = sortedList.map((item) => (
+}) => {
+  const sortedTodos = todoListSorter(items).map((item) => (
     <TodoElement
       key={item.id}
       item={item}
@@ -28,17 +33,19 @@ export default function TodoList({
       <table className={styles.todoTable}>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Due</th>
-            <th>Done</th>
+            <th>{title}</th>
+            <th>{location}</th>
+            <th>{due}</th>
+            <th>{done}</th>
           </tr>
         </thead>
-        <tbody>{rows}</tbody>
+        <tbody>{sortedTodos}</tbody>
       </table>
     </div>
   );
-}
+};
+
+export default TodoList;
 
 TodoList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.array]).isRequired,
