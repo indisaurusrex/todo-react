@@ -6,6 +6,7 @@ import TodoList from '../TodoList/TodoList';
 import styles from './App.module.css';
 import createTodoList from '../../app/todoListCreator';
 import generateId from '../../app/generateId';
+import rainbow from '../../images/rainbow.png';
 
 const header = 'Do these things:';
 
@@ -14,6 +15,11 @@ const header = 'Do these things:';
  */
 const App = ({ todos }) => {
   const [items, setItems] = useState(todos);
+  const [rainbowBackground, setRainbowBackground] = useState(false);
+
+  const toggleRainbow = () => {
+    setRainbowBackground(!rainbowBackground);
+  };
 
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
@@ -56,7 +62,7 @@ const App = ({ todos }) => {
   };
 
   return (
-    <div>
+    <div className={rainbowBackground ? styles.rainbowBackgroundCss : styles.whiteBackgroundCss}>
       <div className={styles.app}>
         <Card className={styles.root}>
           <Header
@@ -72,6 +78,7 @@ const App = ({ todos }) => {
           />
         </Card>
       </div>
+      <input type="image" alt="rainbow background toggle" className={styles.rainbowButton} src={rainbow} onClick={toggleRainbow} />
     </div>
   );
 };
