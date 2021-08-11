@@ -9,6 +9,8 @@ import tree from '../../images/pine.png';
 import cloudSun from '../../images/cloud-sun.png';
 import donePercentCalculator from '../../app/donePercentCalculator';
 
+const sceneryLabel = '(change scenery)';
+
 /**
  * Holder for the images which change according to progress,
  * the progress trackers and add new todo button/form
@@ -52,6 +54,7 @@ const Header = ({ items, addTodo }) => {
           src={cloudSun}
           onClick={chooseWeatherScenery}
         />
+        <div className={styles.sceneryLabel}>{sceneryLabel}</div>
       </div>
     </div>
   );
