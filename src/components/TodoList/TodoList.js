@@ -29,7 +29,7 @@ const TodoList = ({
   ));
 
   return (
-    <div>
+    <div className={styles.container}>
       <table className={styles.todoTable}>
         <thead>
           <tr>
