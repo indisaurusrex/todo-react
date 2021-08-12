@@ -9,6 +9,7 @@ import generateId from '../../app/generateId';
 import rainbow from '../../images/rainbow.png';
 
 const header = 'Do these things:';
+// const rainbowBtnLabel = '(change background)';
 
 /**
  * Renders the app, holds most functions that affect the todo list
@@ -79,6 +80,7 @@ const App = ({ todos }) => {
         </Card>
       </div>
       <input type="image" alt="rainbow background toggle" className={styles.rainbowButton} src={rainbow} onClick={toggleRainbow} />
+      {/* <div className={styles.rainbowButtonLabel}>{rainbowBtnLabel}</div> */}
     </div>
   );
 };

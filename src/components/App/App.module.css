@@ -13,16 +13,39 @@ body {
   color: white;
 }
 
+@media (max-width: 2000px) {
+  .app {
+    width: 560px;
+    left: 32%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: 70vw;
+    left: 15vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    width: 90vw;
+    left: 5vw;
+  }
+}
+
 .app {
+  display: flex;
+  flex: auto;
   text-align: center;
   position: absolute;
-  left: 35%;
   top: 5em;
+  padding-bottom: 5em;
   font-family: 'Roboto', sans-serif;
 }
 
 .root {
-  min-width: 275px;
+  width: 100%;
 }
 
 .rainbowButton {
@@ -30,6 +53,13 @@ body {
   margin-top: 10px;
   margin-bottom: -15px;
 }
+
+/* .rainbowButtonLabel {
+  padding-top: 10px;
+  font-size: small;
+  color: purple;
+  font-family: 'Roboto', sans-serif;
+} */
 
 .rainbowBackgroundCss {
   width: 100%;
@@ -52,7 +82,7 @@ body {
 }
 
 .whiteBackgroundCss {
-  width: 100%;
-  height: 1000px;
+  width: 100vw;
+  height: 100vh;
   background: white;
 }

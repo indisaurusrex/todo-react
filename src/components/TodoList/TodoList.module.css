@@ -1,3 +1,7 @@
 .todoTable {
   width: 100%;
 }
+
+.container {
+  width: inherit;
+}
