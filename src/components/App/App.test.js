@@ -76,29 +76,4 @@ describe('App component', () => {
     const headerText = screen.getByText(/Do these things/);
     expect(headerText).toBeInTheDocument();
   });
-
-  // it('progress percent increases appropriately when you tick a box', async () => {
-  //   render(<App todoProp={mockTodosFour} />);
-  //   expect(screen.getByTestId('Progress')).toHaveTextContent('25% done');
-  //   fireEvent.click(document.getElementById('112'));
-  //   expect(screen.getByTestId('Progress')).toHaveTextContent('50% done');
-  // });
-  // destructure getByText, getByDataId from render
-  // expect getByText 25% done toBeInDocument
-  // fireEvent.click getByDataId '112'
-  // expect getByText 50% done toBeInDocument
-
-  // it('decreases done percent when a box is unticked', async () => {
-  //   render(<App todoProp={mockTodosFour} />);
-  //   fireEvent.click(document.getElementById('111'));
-  //   expect(screen.getByTestId('Progress')).toHaveTextContent('25% done');
-  // });
-
-// move it to the todolist for the sorting
-  // it('shows the todos that are done at the bottom of the list', async () => {
-  //   render(<App todoProp={mockTodosFourV2} />);
-  //   const listOfTodos = screen.getAllByTestId('todoTitle');
-  //   const lastTodo = listOfTodos[listOfTodos.length - 1];
-  //   expect(lastTodo).toHaveTextContent('Hotel booking for holiday');
-  // });
 });

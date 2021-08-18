@@ -6,6 +6,7 @@ import TodoList from '../TodoList/TodoList';
 import styles from './App.module.css';
 import generateId from '../../app/generateId';
 import rainbow from '../../images/rainbow.png';
+import todosFromStorage from '../../app/todosFromStorage';
 
 const header = 'Do these things:';
 const startTodo = [
@@ -23,8 +24,7 @@ const startTodo = [
  * Renders the app, holds most functions that affect the todo list
  */
 const App = ({ todos }) => {
-  const todosFromStorage = JSON.parse(localStorage.getItem('items') || todos);
-  const [items, setItems] = useState(todosFromStorage);
+  const [items, setItems] = useState(todosFromStorage(todos));
   const [rainbowBackground, setRainbowBackground] = useState(false);
 
   const toggleRainbow = () => {
