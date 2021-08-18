@@ -4,18 +4,27 @@ import Card from '@material-ui/core/Card';
 import Header from '../Header/Header';
 import TodoList from '../TodoList/TodoList';
 import styles from './App.module.css';
-import createTodoList from '../../app/todoListCreator';
 import generateId from '../../app/generateId';
 import rainbow from '../../images/rainbow.png';
+import todosFromStorage from '../../app/todosFromStorage';
 
 const header = 'Do these things:';
+const startTodo = [
+  {
+    id: 1,
+    title: "I'm just a humble example, remove me and write your own :)",
+    location: 'Kitchen',
+    dueDate: 1625232600000,
+    done: false,
+  },
+];
 // const rainbowBtnLabel = '(change background)';
 
 /**
  * Renders the app, holds most functions that affect the todo list
  */
 const App = ({ todos }) => {
-  const [items, setItems] = useState(todos);
+  const [items, setItems] = useState(todosFromStorage(todos));
   const [rainbowBackground, setRainbowBackground] = useState(false);
 
   const toggleRainbow = () => {
@@ -25,6 +34,7 @@ const App = ({ todos }) => {
   const removeTodo = (itemId) => {
     const remainingTodos = items.filter((todo) => todo.id !== itemId);
     setItems(remainingTodos);
+    localStorage.setItem('items', JSON.stringify(remainingTodos));
   };
 
   const updateTodo = (id, newTitle) => {
@@ -37,6 +47,7 @@ const App = ({ todos }) => {
       return newTodo;
     });
     setItems(updatedTodos);
+    localStorage.setItem('items', JSON.stringify(updatedTodos));
   };
 
   const addTodo = (item) => {
@@ -46,6 +57,7 @@ const App = ({ todos }) => {
     tempItem.done = false;
     tempItems.push(tempItem);
     setItems([...tempItems]);
+    localStorage.setItem('items', JSON.stringify(tempItems));
   };
 
   const handleCheckboxChange = (item) => {
@@ -60,6 +72,7 @@ const App = ({ todos }) => {
       }
     });
     setItems([...changedCheckboxList]);
+    localStorage.setItem('items', JSON.stringify(changedCheckboxList));
   };
 
   return (
@@ -92,5 +105,5 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  todos: createTodoList(),
+  todos: startTodo,
 };
