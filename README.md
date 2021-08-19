@@ -49,6 +49,10 @@ TDD hasn't been implemented or used properly yet. Priority has been given to res
 A new version of the app is being rewritten in TypeScript to get a better understanding of that. 
 [See this repo for the TS version (very much a WIP)](https://github.com/indisaurusrex/todo-typescript)
 
+### Update 2 (19 Aug '21)
+The app has been hosted successfully on netlify, and localStorage is being used for the list of items to be stored for each user. I think this suits our purpose best for now. 
+Having just learnt about text sanitisation for HTML input, I'm going to use DOMPurify as suggested by Joel Turner in [this excellent article.](https://dev.to/joelmturner/build-an-inline-edit-text-input-with-react-hooks-4nah) 
+
 ## Future opportunities
 
 Create and connect to a NodeJS web server, create and connect to a CRUD db web server. 
