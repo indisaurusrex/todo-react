@@ -14,11 +14,9 @@ const startTodo = [
     id: 1,
     title: "I'm just a humble example, remove me and write your own :)",
     location: 'Kitchen',
-    dueDate: 1625232600000,
     done: false,
   },
 ];
-// const rainbowBtnLabel = '(change background)';
 
 /**
  * Renders the app, holds most functions that affect the todo list
@@ -37,12 +35,25 @@ const App = ({ todos }) => {
     localStorage.setItem('items', JSON.stringify(remainingTodos));
   };
 
-  const updateTodo = (id, newTitle) => {
+  const updateTitle = (id, newTitle) => {
     const updatedTodos = items;
     updatedTodos.map((todo) => {
       const newTodo = todo;
       if (id === todo.id) {
         newTodo.title = newTitle;
+      }
+      return newTodo;
+    });
+    setItems(updatedTodos);
+    localStorage.setItem('items', JSON.stringify(updatedTodos));
+  };
+
+  const updateLocation = (id, newLocation) => {
+    const updatedTodos = items;
+    updatedTodos.map((todo) => {
+      const newTodo = todo;
+      if (id === todo.id) {
+        newTodo.location = newLocation;
       }
       return newTodo;
     });
@@ -88,7 +99,8 @@ const App = ({ todos }) => {
             items={items}
             changeCheckbox={handleCheckboxChange}
             removeTodo={removeTodo}
-            updateTodo={updateTodo}
+            updateTodo={updateTitle}
+            updateLocation={updateLocation}
           />
         </Card>
       </div>

@@ -41,59 +41,84 @@ const TodoElement = ({
   return (
     <tr>
       {!edit ? (
-        <th data-testid="todoTitle">
-          <div className={styles.todo}>
-            {`${item.title} `}
-            <button type="submit" onClick={toggleEdit}>
+        <>
+          <th className={styles.todo}>{`${item.title} `}</th>
+          <th className={styles.todo}>{item.location}</th>
+          <th className={styles.todo}>
+            {`${theDate.toLocaleDateString('en-US', {
+              day: 'numeric',
+            })} ${theDate.toLocaleDateString('en-US', {
+              month: 'short',
+            })} ${hours}:${mins}`}
+          </th>
+          <th className={styles.todo}>
+            <input
+              id={item.id}
+              type="checkbox"
+              defaultChecked={item.done}
+              onChange={() => {
+                changeCheckbox(item);
+              }}
+            />
+            <button
+              type="button"
+              className={styles.removeTodo}
+              onClick={() => {
+                removeTodo(item.id);
+              }}
+            >
+              {remove}
+            </button>
+            <button
+              type="submit"
+              className={styles.editTodo}
+              onClick={toggleEdit}
+            >
               {editButton}
             </button>
-          </div>
-        </th>
+          </th>
+        </>
       ) : (
-        <td>
-          <input
-            type="text"
-            value={todoTitle}
-            name="todo"
-            onChange={handleEditChange}
-          />
-          &nbsp;
-          <button type="submit" onClick={toggleEdit}>
-            {cancel}
-          </button>
-          &nbsp;
-          <button type="submit" onClick={() => saveEdit(item.id)}>
-            {save}
-          </button>
-        </td>
+        <form>
+          <tr>
+            <th className={styles.todo}>
+              <input
+                type="text"
+                value={item.title}
+                name="todoTitleEdit"
+                onChange={handleEditChange}
+              />
+            </th>
+            <th className={styles.todo}>
+              <input
+                type="text"
+                value={item.location}
+                name="todoLocationEdit"
+                onChange={handleEditChange}
+              />
+            </th>
+            <th className={styles.todo}>the date</th>
+            <th className={styles.todo}>
+              <button type="submit" onClick={toggleEdit}>
+                {cancel}
+              </button>
+              &nbsp;
+              <button type="submit" onClick={() => saveEdit(item.id)}>
+                {save}
+              </button>
+            </th>
+
+            {/* <th>
+              <input
+                type="text"
+                value={todoTitle}
+                name="todo"
+                onChange={handleEditChange}
+              />
+            </th> */}
+          </tr>
+        </form>
       )}
-      <th className={styles.todo}>{item.location}</th>
-      <th className={styles.todo}>
-        {`${theDate.toLocaleDateString('en-US', {
-          day: 'numeric',
-        })} ${theDate.toLocaleDateString('en-US', {
-          month: 'short',
-        })} ${hours}:${mins}`}
-      </th>
-      <th className={styles.todo}>
-        <input
-          id={item.id}
-          type="checkbox"
-          defaultChecked={item.done}
-          onChange={() => {
-            changeCheckbox(item);
-          }}
-        />
-        <button
-          type="button"
-          className={styles.removeTodo}
-          onClick={() => {
-            removeTodo(item.id);
-          }}
-        >
-          {remove}
-        </button>
-      </th>
     </tr>
   );
 };

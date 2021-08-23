@@ -7,8 +7,6 @@ import styles from './AddNewTodo.module.css';
 
 const missingTitle = 'Please enter a title';
 const missingLocation = 'Please enter a location';
-const missingDate = 'Please enter a location';
-const missingTime = 'Please enter a time';
 const submit = 'Submit';
 const addAnItem = 'Add an item';
 
@@ -24,11 +22,9 @@ const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
   } = useForm();
 
   const handleAdd = (data) => {
-    const date2 = new Date(`${data.dueDate} ${data.dueTime}:00`);
     const todo = {
       title: data.title,
       location: data.location,
-      dueDate: date2.getTime(),
     };
     addTodo(todo);
     reset();
@@ -64,12 +60,6 @@ const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
                 placeholder="Where is it?"
               />
               {errors.location && <p>{missingLocation}</p>}
-              <div style={{ padding: '10px' }} />
-              <input {...register('dueDate', { required: true })} type="date" />
-              {errors.dueDate && <p>{missingDate}</p>}
-              <div style={{ padding: '10px' }} />
-              <input {...register('dueTime', { required: true })} type="time" />
-              {errors.dueTime && <p>{missingTime}</p>}
               <div style={{ padding: '10px' }} />
               <button type="submit">{submit}</button>
             </form>

@@ -12,16 +12,12 @@ const todoList = [
     id: 0,
     title: 'Get a haircut',
     location: 'hair dressers',
-    dueTime: '09:00',
-    dueDate: '31052021',
     done: true,
   },
   {
     id: 1,
     title: 'Do the dishes',
     location: 'kitchen',
-    dueTime: '13:00',
-    dueDate: '31052021',
     done: true,
   },
 ];

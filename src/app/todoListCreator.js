@@ -8,7 +8,6 @@ export default function createTodoList() {
       id: i,
       title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
       location: randomWords(),
-      dueDate: Math.floor(Math.random() * 1000000000),
       done: Math.random() < 0.5,
     });
   }

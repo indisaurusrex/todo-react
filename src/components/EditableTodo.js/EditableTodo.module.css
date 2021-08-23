@@ -1,0 +1,39 @@
+.inlineTitleCopyActive,
+.inlineTitleInputActive {
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 300px;
+}
+
+.inlineLocationCopyActive,
+.inlineLocationInputActive {
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 70px;
+}
+
+.inlineTextCopyActive {
+  cursor: pointer;
+}
+
+.details {
+  font-weight: lighter;
+}
+
+.inlineTextCopyHidden,
+.inlineTextInputHidden {
+  display: none;
+}
+
+.inlineTextInputActive {
+  width: 300px;
+  text-align: left;
+}

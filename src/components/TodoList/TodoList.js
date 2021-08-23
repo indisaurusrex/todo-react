@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TodoElement from '../TodoElement/TodoElement';
+// import TodoElement from '../TodoElement/TodoElement';
+import EditableTodo from '../EditableTodo.js/EditableTodo';
 import styles from './TodoList.module.css';
 import todoListSorter from '../../app/todoListSorter';
-
-const title = 'Title';
-const location = 'Location';
-const due = 'Due';
-const done = 'Done';
 
 /**
  * The table headers and holder for the todos to sit in
@@ -16,29 +12,31 @@ const TodoList = ({
   items,
   changeCheckbox,
   removeTodo,
+  updateLocation,
   updateTodo,
 }) => {
   const sortedTodos = todoListSorter(items).map((item) => (
-    <TodoElement
+    <EditableTodo
       key={item.id}
       item={item}
+      updateTodo={updateTodo}
+      updateLocation={updateLocation}
+      id={item.id}
       changeCheckbox={changeCheckbox}
       removeTodo={removeTodo}
-      updateTodo={updateTodo}
     />
   ));
+    // <TodoElement
+    //   key={item.id}
+    //   item={item}
+    //   changeCheckbox={changeCheckbox}
+    //   removeTodo={removeTodo}
+    //   updateTodo={updateTodo}
+    // />
 
   return (
     <div className={styles.container}>
       <table className={styles.todoTable}>
-        <thead>
-          <tr>
-            <th>{title}</th>
-            <th>{location}</th>
-            <th>{due}</th>
-            <th>{done}</th>
-          </tr>
-        </thead>
         <tbody>{sortedTodos}</tbody>
       </table>
     </div>
@@ -52,4 +50,5 @@ TodoList.propTypes = {
   changeCheckbox: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   updateTodo: PropTypes.func.isRequired,
+  updateLocation: PropTypes.func.isRequired,
 };
