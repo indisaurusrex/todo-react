@@ -12,25 +12,25 @@ const mockTodosFour = [
   {
     id: 111,
     title: 'Hotel booking for holiday',
-    location: 'House',
+    details: 'House',
     done: true,
   },
   {
     id: 112,
     title: 'Walk the dog',
-    location: 'Victoria Park',
+    details: 'Victoria Park',
     done: false,
   },
   {
     id: 113,
     title: 'Entertain the goldfish',
-    location: 'Living room',
+    details: 'Living room',
     done: false,
   },
   {
     id: 114,
     title: 'Put shoes on',
-    location: 'Near the door',
+    details: 'Near the door',
     done: false,
   },
 ];
@@ -39,25 +39,25 @@ const mockTodosFourV2 = [
   {
     id: 111,
     title: 'Hotel booking for holiday',
-    location: 'House',
+    details: 'House',
     done: true,
   },
   {
     id: 112,
     title: 'Walk the dog',
-    location: 'Victoria Park',
+    details: 'Victoria Park',
     done: false,
   },
   {
     id: 113,
     title: 'Entertain the goldfish',
-    location: 'Living room',
+    details: 'Living room',
     done: false,
   },
   {
     id: 114,
     title: 'Put shoes on',
-    location: 'Near the door',
+    details: 'Near the door',
     done: false,
   },
 ];

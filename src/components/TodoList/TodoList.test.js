@@ -11,13 +11,13 @@ const todoList = [
   {
     id: 0,
     title: 'Get a haircut',
-    location: 'hair dressers',
+    details: 'hair dressers',
     done: true,
   },
   {
     id: 1,
     title: 'Do the dishes',
-    location: 'kitchen',
+    details: 'kitchen',
     done: true,
   },
 ];

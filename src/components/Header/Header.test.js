@@ -10,25 +10,25 @@ const basicItems = [
   {
     id: 1,
     title: 'thing1',
-    location: 'there',
+    details: 'there',
     done: true,
   },
   {
     id: 2,
     title: 'thing2',
-    location: 'here',
+    details: 'here',
     done: true,
   },
   {
     id: 3,
     title: 'thing3',
-    location: 'there',
+    details: 'there',
     done: false,
   },
   {
     id: 4,
     title: 'thing4',
-    location: 'here',
+    details: 'here',
     done: false,
   },
 ];
@@ -53,7 +53,7 @@ describe('Header component', () => {
     const anotherTodo = {
       id: 5,
       title: 'Walk dog',
-      location: 'Hyde Park',
+      details: 'Hyde Park',
       dueDate: '2021-06-30',
       dueTime: '10:00',
       done: false,

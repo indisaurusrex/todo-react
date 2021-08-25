@@ -10,34 +10,31 @@ import useOnClickOutside from '../../app/hooks/useOnClickOutside';
 const EditableTodo = ({
   item,
   updateTodo,
-  updateLocation,
+  updateDetails,
   removeTodo,
   changeCheckbox,
 }) => {
   const [isTitleInputActive, setIsTitleInputActive] = useState(false);
   const [titleInputValue, setTitleInputValue] = useState(item.title);
-  const [isLocationInputActive, setIsLocationInputActive] = useState(false);
-  const [locationInputValue, setLocationInputValue] = useState(item.location);
+  const [isDetailsInputActive, setIsDetailsInputActive] = useState(false);
+  const [detailsInputValue, setDetailsInputValue] = useState(item.details);
 
   const wrapperRef = useRef(null);
   const titleTextRef = useRef(null);
   const titleInputRef = useRef(null);
-  const locationTextRef = useRef(null);
-  const locationInputRef = useRef(null);
+  const detailsTextRef = useRef(null);
+  const detailsInputRef = useRef(null);
 
   const remove = 'x';
-  const atWithSpaces = ' at ';
-  const onWithSpaces = ' on ';
-  const done = 'done?';
 
   useOnClickOutside(wrapperRef, () => {
     if (isTitleInputActive) {
       updateTodo(item.id, titleInputValue);
       setIsTitleInputActive(false);
     }
-    if (isLocationInputActive) {
-      updateLocation(item.id, locationInputValue);
-      setIsLocationInputActive(false);
+    if (isDetailsInputActive) {
+      updateDetails(item.id, detailsInputValue);
+      setIsDetailsInputActive(false);
     }
   });
 
@@ -48,68 +45,77 @@ const EditableTodo = ({
   }, [isTitleInputActive]);
 
   useEffect(() => {
-    if (isLocationInputActive) {
-      locationInputRef.current.focus();
+    if (isDetailsInputActive) {
+      detailsInputRef.current.focus();
     }
-  }, [isLocationInputActive]);
+  }, [isDetailsInputActive]);
 
   return (
     <span ref={wrapperRef}>
-      <p>
-        <span
-          ref={titleTextRef}
-          role="presentation"
-          onClick={() => setIsTitleInputActive(true)}
-          onKeyDown={() => setIsTitleInputActive(true)}
-          className={styles.inlineTitleCopyActive}
-          style={{ width: Math.ceil(titleInputValue.length * 0.9) }}
-        >
-          <input
-            ref={titleInputRef}
-            value={titleInputValue}
-            onChange={(e) => setTitleInputValue(e.target.value)}
-            className={styles.inlineTitleInputActive}
-            style={{ width: Math.ceil(titleInputValue.length * 7.5) }}
-          />
-        </span>
-        <span className={styles.details}>{atWithSpaces}</span>
-        <span
-          ref={locationTextRef}
-          role="presentation"
-          onClick={() => setIsLocationInputActive(true)}
-          onKeyDown={() => setIsLocationInputActive(true)}
-          className={styles.inlineLocationCopyActive}
-        >
-          <input
-            ref={locationInputRef}
-            value={locationInputValue}
-            onChange={(e) => setLocationInputValue(e.target.value)}
-            className={styles.inlineLocationInputActive}
-            style={{ width: Math.ceil(locationInputValue.length * 8) }}
-          />
-        </span>
-        <span className={styles.details}>{onWithSpaces}</span>
-        <span className={styles.details}>{done}</span>
-        <span className={styles.todo}>
-          <input
-            id={item.id}
-            type="checkbox"
-            defaultChecked={item.done}
-            onChange={() => {
-              changeCheckbox(item);
-            }}
-          />
-          <button
-            type="button"
-            className={styles.removeTodo}
-            onClick={() => {
-              removeTodo(item.id);
-            }}
+      <tr className={styles.toprow}>
+        <p className={item.done ? styles.greyIfChecked : styles.toprow}>
+          <td className={styles.checkboxColumn}>
+            <input
+              id={item.id}
+              type="checkbox"
+              defaultChecked={item.done}
+              onChange={() => {
+                changeCheckbox(item);
+              }}
+              className={styles.checkbox}
+            />
+          </td>
+          <td className={styles.titleColumn}>
+            <span
+              ref={titleTextRef}
+              role="presentation"
+              onClick={() => setIsTitleInputActive(true)}
+              onKeyDown={() => setIsTitleInputActive(true)}
+              className={styles.inlineTitleCopyActive}
+            >
+              <input
+                ref={titleInputRef}
+                value={titleInputValue}
+                onChange={(e) => setTitleInputValue(e.target.value)}
+                className={styles.inlineTitleInputActive}
+                // style={{ width: titleInputValue.length * 7 }}
+              />
+            </span>
+          </td>
+          <td className={styles.removeColumn}>
+            <span className={styles.todo}>
+              <button
+                type="button"
+                className={styles.removeTodo}
+                onClick={() => {
+                  removeTodo(item.id);
+                }}
+              >
+                {remove}
+              </button>
+            </span>
+          </td>
+        </p>
+      </tr>
+      <tr className={styles.bottomrow}>
+        <td className={styles.detailsColumn}>
+          <span
+            ref={detailsTextRef}
+            role="presentation"
+            onClick={() => setIsDetailsInputActive(true)}
+            onKeyDown={() => setIsDetailsInputActive(true)}
+            className={styles.details}
           >
-            {remove}
-          </button>
-        </span>
-      </p>
+            <input
+              ref={detailsInputRef}
+              value={detailsInputValue}
+              onChange={(e) => setDetailsInputValue(e.target.value)}
+              className={styles.inlineDetailsInputActive}
+              // style={{ width: Math.ceil(detailsInputValue.length * 9) }}
+            />
+          </span>
+        </td>
+      </tr>
     </span>
   );
 };
@@ -120,7 +126,7 @@ EditableTodo.propTypes = {
   item: PropTypes.oneOfType([PropTypes.object]).isRequired,
   updateTodo: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
-  updateLocation: PropTypes.func.isRequired,
+  updateDetails: PropTypes.func.isRequired,
   changeCheckbox: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
 };

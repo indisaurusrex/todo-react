@@ -12,8 +12,8 @@ const header = 'Do these things:';
 const startTodo = [
   {
     id: 1,
-    title: "I'm just a humble example, remove me and write your own :)",
-    location: 'Kitchen',
+    title: 'Example item: remove me by clicking the x -->',
+    details: 'Kitchen',
     done: false,
   },
 ];
@@ -48,12 +48,12 @@ const App = ({ todos }) => {
     localStorage.setItem('items', JSON.stringify(updatedTodos));
   };
 
-  const updateLocation = (id, newLocation) => {
+  const updateDetails = (id, newDetails) => {
     const updatedTodos = items;
     updatedTodos.map((todo) => {
       const newTodo = todo;
       if (id === todo.id) {
-        newTodo.location = newLocation;
+        newTodo.details = newDetails;
       }
       return newTodo;
     });
@@ -100,7 +100,7 @@ const App = ({ todos }) => {
             changeCheckbox={handleCheckboxChange}
             removeTodo={removeTodo}
             updateTodo={updateTitle}
-            updateLocation={updateLocation}
+            updateDetails={updateDetails}
           />
         </Card>
       </div>

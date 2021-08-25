@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import styles from './AddNewTodo.module.css';
 
 const missingTitle = 'Please enter a title';
-const missingLocation = 'Please enter a location';
 const submit = 'Submit';
 const addAnItem = 'Add an item';
 
@@ -24,7 +23,7 @@ const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
   const handleAdd = (data) => {
     const todo = {
       title: data.title,
-      location: data.location,
+      details: data.details,
     };
     addTodo(todo);
     reset();
@@ -55,12 +54,10 @@ const AddNewTodo = ({ isFormDisplaying, toggleFormDisplaying, addTodo }) => {
               {errors.title && <p>{missingTitle}</p>}
               <div style={{ padding: '10px' }} />
               <input
-                {...register('location', { required: true })}
+                {...register('details', { required: false })}
                 type="text"
                 placeholder="Where is it?"
               />
-              {errors.location && <p>{missingLocation}</p>}
-              <div style={{ padding: '10px' }} />
               <button type="submit">{submit}</button>
             </form>
           </div>

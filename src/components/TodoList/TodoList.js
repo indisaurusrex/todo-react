@@ -12,7 +12,7 @@ const TodoList = ({
   items,
   changeCheckbox,
   removeTodo,
-  updateLocation,
+  updateDetails,
   updateTodo,
 }) => {
   const sortedTodos = todoListSorter(items).map((item) => (
@@ -20,7 +20,7 @@ const TodoList = ({
       key={item.id}
       item={item}
       updateTodo={updateTodo}
-      updateLocation={updateLocation}
+      updateDetails={updateDetails}
       id={item.id}
       changeCheckbox={changeCheckbox}
       removeTodo={removeTodo}
@@ -50,5 +50,5 @@ TodoList.propTypes = {
   changeCheckbox: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   updateTodo: PropTypes.func.isRequired,
-  updateLocation: PropTypes.func.isRequired,
+  updateDetails: PropTypes.func.isRequired,
 };

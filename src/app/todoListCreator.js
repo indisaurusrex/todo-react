@@ -7,7 +7,7 @@ export default function createTodoList() {
     todos.push({
       id: i,
       title: randomWords({ exactly: 1, wordsPerString: 3 })[0],
-      location: randomWords(),
+      details: randomWords(),
       done: Math.random() < 0.5,
     });
   }

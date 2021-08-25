@@ -1,6 +1,6 @@
 [
-    {"title": "Get a hair cut", "location": "hair dressers", "dueTime": "0900", "dueDate": "31052021", "done": true},
-    {"title": "Do the dishes", "location": "kitchen", "dueTime": "1300", "dueDate": "31052021", "done": false},
-    {"title": "Run the show", "location": "living room", "dueTime": "1003", "dueDate": "31052021", "done": false},
-    {"title": "Join the party", "location": "balcony", "dueTime": "1900", "dueDate": "31052021", "done": false}
+    {"title": "Get a hair cut", "details": "hair dressers", "done": true},
+    {"title": "Do the dishes", "details": "kitchen", "done": false},
+    {"title": "Run the show", "details": "living room", "done": false},
+    {"title": "Join the party", "details": "balcony", "done": false}
 ]

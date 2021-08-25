@@ -52,6 +52,7 @@ A new version of the app is being rewritten in TypeScript to get a better unders
 ### Update 2 (19 Aug '21)
 The app has been hosted successfully on netlify, and localStorage is being used for the list of items to be stored for each user. I think this suits our purpose best for now. 
 Having just learnt about text sanitisation for HTML input, I'm going to use DOMPurify as suggested by Joel Turner in [this excellent article.](https://dev.to/joelmturner/build-an-inline-edit-text-input-with-react-hooks-4nah) 
+(and another resource from the same article, which was just really useful anyway: [the code sandbox](https://codesandbox.io/s/inline-text-edit-react-hooks-6ql5m?from-embed=&file=/src/components/inlineEdit.js:925-934))
 
 ## Future opportunities
 

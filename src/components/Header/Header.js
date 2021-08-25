@@ -9,7 +9,7 @@ import tree from '../../images/pine.png';
 import cloudSun from '../../images/cloud-sun.png';
 import donePercentCalculator from '../../app/donePercentCalculator';
 
-const sceneryLabel = '(change scenery)';
+const sceneryLabel = '(scene change)';
 
 /**
  * Holder for the images which change according to progress,

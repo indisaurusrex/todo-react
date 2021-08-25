@@ -43,7 +43,7 @@ const TodoElement = ({
       {!edit ? (
         <>
           <th className={styles.todo}>{`${item.title} `}</th>
-          <th className={styles.todo}>{item.location}</th>
+          <th className={styles.todo}>{item.details}</th>
           <th className={styles.todo}>
             {`${theDate.toLocaleDateString('en-US', {
               day: 'numeric',
@@ -92,8 +92,8 @@ const TodoElement = ({
             <th className={styles.todo}>
               <input
                 type="text"
-                value={item.location}
-                name="todoLocationEdit"
+                value={item.details}
+                name="todoDetailsEdit"
                 onChange={handleEditChange}
               />
             </th>
