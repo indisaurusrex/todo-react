@@ -2,6 +2,8 @@
 
 This project was created as part of Turing Grow upskilling in React. This repo is initially for the front end, built in React and will allow users to add to and edit a todo list. The main aim is to show a good understanding of state management and interactivity. 
 
+See the app in action and use it for yourself at https://objective-todo-rainbow.netlify.app!
+
 ## Features for initial app
 
 1. - [x] Create an item
